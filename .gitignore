@@ -1,0 +1,25 @@
+# Datasets — far too large for GitHub (data/owt_sample/owt_train.txt alone is 11.4 GB).
+# GitHub hard-rejects files over 100 MB, so these stay local only.
+data/
+
+# Retired nested-repository metadata for cs336/assignment1-basics.
+# Kept on disk as a backup of the stanford-cs336 upstream clone, never committed.
+.git.upstream-backup/
+
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python caches / build output
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+build/
+dist/
+*.egg-info/
