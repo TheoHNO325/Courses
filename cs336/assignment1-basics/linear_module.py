@@ -136,9 +136,9 @@ class RoPE(nn.Module):
         x_even = x[..., 0::2]
         x_odd = x[..., 1::2]
 
-        y = torch.empty(x.shape)
+        y = torch.empty_like(x)
         if token_positions == None:
-            token_positions = torch.arange(x.size(1))
+            token_positions = torch.arange(x.size(1), device=x.device)
         y[...,0::2] = self.cos[token_positions] * x_even - self.sin[token_positions] * x_odd
         y[...,1::2] = self.sin[token_positions] * x_even + self.cos[token_positions] * x_odd
 
@@ -155,7 +155,7 @@ def softmax(x,dim):
 
 def scaled_dot_product_attention(queries,keys,values,mask):
     dut = einsum(queries,keys,'batch ... q_len d_k, batch ... k_len d_k -> batch ... q_len k_len')
-    mask_inf = torch.zeros(mask.shape)
+    mask_inf = torch.zeros(mask.shape, device=dut.device, dtype=dut.dtype)
     mask_inf[~mask] = -torch.inf
     # print(mask_inf)
     # print(mask_inf.shape)
@@ -254,7 +254,7 @@ class transformer_lm(nn.Module):
         ])
 
         self.ln_final = RMSNorm(d_model)
-        self.lm_head = Linear(vocab_size,d_model)
+        self.lm_head = Linear(d_model,vocab_size)
         self.seq_len = context_length
 
     def forward(self,x):

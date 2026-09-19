@@ -76,7 +76,8 @@ def build_model(cfg):
         d_model=cfg["d_model"],
         num_heads=cfg["num_heads"],
         d_ff=cfg["d_ff"],
-        rope_theta=cfg["rope_theta"],
+        max_seq_len=cfg["context_length"],
+        theta=cfg["rope_theta"],
     )
 
 
