@@ -20,6 +20,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # 路径约定：由脚本自身位置推导，Windows / Linux 通用
 PROJECT_DIR = Path(__file__).resolve().parent      # cs336/assignment1-basics
 DATA_DIR = PROJECT_DIR.parent / "data"             # cs336/data
+RESULTS_DIR = PROJECT_DIR / "section2_results"
 TINYSTORIES_DIR = DATA_DIR / "TinyStories"
 OWT_DIR = DATA_DIR / "owt_sample"
 
@@ -196,9 +197,14 @@ if __name__ == "__main__":
         # merge: list of (bytes, bytes) 转为 list of [str, str]
     merges_json = [[a.decode('latin-1'), b.decode('latin-1')] for a, b in merge]
 
-    with open('owt_vocab.json', 'w', encoding='utf-8') as f:
+    # 与 TinyStories 的结果放在一起，文件名与 exp2_7.py / training.py 的默认查找名一致
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    vocab_out = RESULTS_DIR / "openwebtext_vocab.json"
+    merges_out = RESULTS_DIR / "openwebtext_merges.json"
+
+    with open(vocab_out, 'w', encoding='utf-8') as f:
         json.dump(vocab_json, f, indent=2, ensure_ascii=False)
-    with open('owt_merges.json', 'w', encoding='utf-8') as f:
+    with open(merges_out, 'w', encoding='utf-8') as f:
         json.dump(merges_json, f, indent=2, ensure_ascii=False)
 
-    print("已保存 vocab.json 和 merges.json")
+    print(f"已保存 {vocab_out} 和 {merges_out}")
