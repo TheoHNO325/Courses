@@ -1,5 +1,10 @@
 import torch
 import numpy as np
+from pathlib import Path
+from array import array
+import multiprocessing as mp
+import shutil
+import tempfile
 from linear_module import transformer_lm
 from exp2_7 import load_tokenizer
 from utils import AdamW, cross_entropy, scheduler, gradient_clipping, save_checkpoint, load_checkpoint
@@ -10,21 +15,27 @@ import json
 import csv
 import argparse
 
+# 路径约定：由脚本自身位置推导，Windows / Linux、任意 CWD 都成立
+PROJECT_DIR = Path(__file__).resolve().parent      # cs336/assignment1-basics
+DATA_DIR = PROJECT_DIR.parent / "data"             # cs336/data
+RESULTS_DIR = PROJECT_DIR / "section2_results"
+TINYSTORIES_DIR = DATA_DIR / "TinyStories"
+
 
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data_path", type=str,
-                        default="data/TinyStories/TinyStories-train.txt")
+                        default=str(TINYSTORIES_DIR / "TinyStories-train.txt"))
     parser.add_argument("--encoded_path", type=str,
-                        default="data/TinyStories/TinyStories-train.npy")
+                        default=str(TINYSTORIES_DIR / "TinyStories-train.npy"))
     parser.add_argument("--val_data_path", type=str,
-                        default="data/TinyStories/TinyStories-valid.txt")
+                        default=str(TINYSTORIES_DIR / "TinyStories-valid.txt"))
     parser.add_argument("--val_encoded_path", type=str,
-                        default="data/TinyStories/TinyStories-valid.npy")
+                        default=str(TINYSTORIES_DIR / "TinyStories-valid.npy"))
     parser.add_argument("--vocab_path", type=str,
-                        default="assignment1-basics/section2_results/tinystories_vocab.json")
+                        default=str(RESULTS_DIR / "tinystories_vocab.json"))
     parser.add_argument("--merges_path", type=str,
-                        default="assignment1-basics/section2_results/tinystories_merges.json")
+                        default=str(RESULTS_DIR / "tinystories_merges.json"))
     parser.add_argument("--vocab_size", type=int, default=10000)
     parser.add_argument("--context_length", type=int, default=256)
     parser.add_argument("--d_model", type=int, default=512)
@@ -37,6 +48,8 @@ def parse_args():
     parser.add_argument("--weight_decay", type=float, default=0.1)
     parser.add_argument("--iters", type=int, default=100)
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
+    parser.add_argument("--preprocess_workers", type=int, default=min(os.cpu_count() or 1, 32),
+                        help="语料编码的并行进程数（1 = 单进程流式）")
     parser.add_argument("--save_path", type=str, default="tiny_stories.ckpt")
     parser.add_argument("--log_dir", type=str, default="logs")
     parser.add_argument("--log_interval", type=int, default=10)
@@ -53,19 +66,123 @@ def parse_args():
     return parser.parse_args()
 
 
-def preprocess(tokenizer, data_path, encoded_path=None):
-    print(f"[preprocess] loading {data_path} ...")
-    ids = []
-    with open(data_path, "r", encoding="utf-8") as f:
+# ------------------------------------------------------------
+# 语料编码
+#   - 输出格式与原来一致：无 .npy 头的裸 uint16 字节流（np.memmap 直接读）
+#   - 不再把全部 token 攒进 Python list（那是 ~28 B/token 的内存放大）
+#   - 按行区间切块多进程并行，各写临时分片，最后按顺序拼接
+# ------------------------------------------------------------
+_CHUNK_BUF_TOKENS = 4_000_000      # 每进程写缓冲，约 8 MB
+
+_W = {}
+
+
+def _encode_worker_init(tokenizer, data_path, starts, ends, part_paths, buf_tokens):
+    _W["tok"] = tokenizer
+    _W["path"] = data_path
+    _W["starts"] = starts
+    _W["ends"] = ends
+    _W["parts"] = part_paths
+    _W["buf"] = buf_tokens
+
+
+def _encode_worker(idx):
+    """编码第 idx 个字节区间：处理所有"起点落在本区间内"的行（跨界的整行归本片）。"""
+    tok = _W["tok"]
+    start, end = _W["starts"][idx], _W["ends"][idx]
+    buf = array("H")
+    total = 0
+    with open(_W["path"], "rb") as f, open(_W["parts"][idx], "wb", buffering=1 << 20) as out:
+        if start > 0:
+            f.seek(start - 1)
+            at_line_start = f.read(1) == b"\n"
+            f.seek(start)
+            if not at_line_start:
+                f.readline()                 # 起点在行中间：丢掉这半行，它归上一个分片
+            # 起点正好在行首时不能丢，否则该行两个分片都不处理
+        while f.tell() < end:
+            raw = f.readline()
+            if not raw:
+                break
+            if raw.endswith(b"\r\n"):
+                raw = raw[:-2] + b"\n"       # 与文本模式的通用换行保持一致
+            ids = tok.encode(raw.decode("utf-8"))
+            buf.extend(ids)
+            total += len(ids)
+            if len(buf) >= _W["buf"]:
+                out.write(buf.tobytes())
+                buf = array("H")
+        if buf:
+            out.write(buf.tobytes())
+    return idx, total
+
+
+def _encode_sequential(tokenizer, data_path, out_path, buf_tokens=_CHUNK_BUF_TOKENS):
+    buf = array("H")
+    total = 0
+    with open(data_path, "r", encoding="utf-8") as f, open(out_path, "wb", buffering=1 << 20) as out:
         for line in f:
-            ids.extend(tokenizer.encode(line).tolist())
-    ids = np.array(ids, dtype=np.uint16)
-    print(f"[preprocess] total tokens = {len(ids)}")
-    if encoded_path:
-        ids.tofile(encoded_path)
-        print(f"[preprocess] saved to {encoded_path}")
+            ids = tokenizer.encode(line)
+            buf.extend(ids)
+            total += len(ids)
+            if len(buf) >= buf_tokens:
+                out.write(buf.tobytes())
+                buf = array("H")
+        if buf:
+            out.write(buf.tobytes())
+    return total
+
+
+def preprocess(tokenizer, data_path, encoded_path=None, workers=1):
+    if encoded_path is None:
+        # 保留原语义：返回内存中的 uint16 数组（仅在明确需要时使用）
+        ids = []
+        with open(data_path, "r", encoding="utf-8") as f:
+            for line in f:
+                ids.extend(tokenizer.encode(line))
+        print(f"[preprocess] total tokens = {len(ids)} (in-memory)")
+        return np.array(ids, dtype=np.uint16)
+
+    size = os.path.getsize(data_path)
+    out_dir = os.path.dirname(os.path.abspath(encoded_path))
+    os.makedirs(out_dir, exist_ok=True)
+    print(f"[preprocess] {data_path} ({size/1e6:.1f} MB) -> {encoded_path}, workers={workers}")
+    t0 = time.time()
+
+    if workers <= 1:
+        print("[preprocess] 单进程流式编码")
+        total = _encode_sequential(tokenizer, data_path, encoded_path)
     else:
-        return ids
+        if size < 1_000_000:
+            print(f"[preprocess] 提示：文件仅 {size/1e6:.2f} MB，{workers} 进程的启动开销可能大于收益")
+        parts_dir = tempfile.mkdtemp(prefix=".preprocess_parts_", dir=out_dir)
+        starts = [size * i // workers for i in range(workers)]
+        ends = starts[1:] + [size]
+        part_paths = [os.path.join(parts_dir, f"part{i:05d}.bin") for i in range(workers)]
+        ctx = mp.get_context("fork") if "fork" in mp.get_all_start_methods() else mp.get_context()
+        total = 0
+        try:
+            with ctx.Pool(processes=workers, initializer=_encode_worker_init,
+                          initargs=(tokenizer, data_path, starts, ends, part_paths, _CHUNK_BUF_TOKENS)) as pool:
+                done = 0
+                step = max(1, workers // 8)
+                for _idx, n in pool.imap_unordered(_encode_worker, range(workers)):
+                    done += 1
+                    total += n
+                    if done % step == 0 or done == workers:
+                        print(f"[preprocess]   {done}/{workers} 分片完成 | 累计 {total/1e6:.2f}M tokens | {time.time()-t0:.0f}s")
+            with open(encoded_path, "wb") as out:
+                for p in part_paths:
+                    with open(p, "rb") as src:
+                        shutil.copyfileobj(src, out, 1 << 23)
+        finally:
+            shutil.rmtree(parts_dir, ignore_errors=True)
+
+    dt = time.time() - t0
+    out_mb = os.path.getsize(encoded_path) / 1e6
+    print(f"[preprocess] total tokens = {total}")
+    print(f"[preprocess] 耗时 {dt:.1f}s | {total/dt/1e3:.1f}K tokens/s | 源文本 {size/1e6/dt:.3f} MB/s | 输出 {out_mb:.1f} MB")
+    return total
 
 
 def build_model(cfg):
@@ -122,10 +239,10 @@ def main():
     tokenizer = load_tokenizer(args.vocab_path, args.merges_path)
 
     if not os.path.exists(args.encoded_path):
-        preprocess(tokenizer, args.data_path, args.encoded_path)
+        preprocess(tokenizer, args.data_path, args.encoded_path, workers=args.preprocess_workers)
 
     if not os.path.exists(args.val_encoded_path):
-        preprocess(tokenizer, args.val_data_path, args.val_encoded_path)
+        preprocess(tokenizer, args.val_data_path, args.val_encoded_path, workers=args.preprocess_workers)
 
     training_dataset = np.memmap(args.encoded_path, dtype=np.uint16, mode="r")
     validation_dataset = np.memmap(args.val_encoded_path, dtype=np.uint16, mode="r")
