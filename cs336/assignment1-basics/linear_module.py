@@ -250,11 +250,11 @@ class transformer_lm(nn.Module):
         super().__init__()
         self.token_embeddings = Embedding(vocab_size,d_model)
         self.layers = nn.ModuleList([
-            Causal_multi_head_attention(d_model, num_heads, d_ff,max_seq_len,theta) for _ in range(num_layers)
+            transformer_block(d_model, num_heads, d_ff,max_seq_len,theta) for _ in range(num_layers)
         ])
 
         self.ln_final = RMSNorm(d_model)
-        self.lm_head = Linear(d_model,d_model)
+        self.lm_head = Linear(vocab_size,d_model)
         self.seq_len = context_length
 
     def forward(self,x):
@@ -262,9 +262,12 @@ class transformer_lm(nn.Module):
         for layer in self.layers:
             x = layer(x)
         x = self.lm_head(self.ln_final(x))
-        return softmax(x)
+        return x 
     
-
+'''
+lm head 把 x的维度从d_model映射到词表大小的logits
+交叉熵就是 -log p(target) 的平均。随机初始化的模型，对"下一个 token 是谁"没有任何信息，它的预测分布接近 vocab 上的均匀分布，于是 p(target) ≈ 1/V
+'''
 
 
 

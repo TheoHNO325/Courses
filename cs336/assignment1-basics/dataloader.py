@@ -6,6 +6,10 @@ def get_batch(x:np.array,batch_size,context_length,device='cpu'):
 
     starts = np.random.randint(0, n - context_length, size=batch_size)
 
+    # # 究竟闹哪样？
+    # starts_id = np.random.randint(0, n / context_length, size=batch_size)
+    # starts = starts_id * context_length
+
     inputs = np.stack([x[s:s + context_length] for s in starts])
     targets = np.stack([x[s + 1:s + 1 + context_length] for s in starts])
 
@@ -16,4 +20,3 @@ def get_batch(x:np.array,batch_size,context_length,device='cpu'):
 
 
 
-    
