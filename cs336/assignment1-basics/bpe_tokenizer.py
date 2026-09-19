@@ -10,7 +10,19 @@ class BPEtokenizer():
         self.vocab,self.merges = vocab,merges
         self.special_tokens = special_tokens
         self.PAT = r"""'s|'t|'re|'ve|'m|'ll|'d| ?\p{L}+| ?\p{N}+| ?[^\s\p{L}\p{N}]+|\s+(?!\S)|\s+"""
+        if self.special_tokens:
+            self.spec_to_id = {}
+            for i in range(len(self.vocab)):
+                if self.vocab[i].decode("latin-1") in self.special_tokens:
+                    self.spec_to_id[self.vocab[i]] = i
+        self.anti_vocab = {}
+        for i in range(len(self.vocab)):
+            self.anti_vocab[self.vocab[i]] = i
+        self.merges_dic = {}
 
+        for i in range(len(self.merges)):
+            self.merges_dic[self.merges[i]] = i
+        
     @classmethod
     def from_files(cls, vocab_filepath,merges_filepath, special_tokens=None):
 
@@ -38,11 +50,7 @@ class BPEtokenizer():
         # 并且应该是encode过的，所以应该先encode？
         token_strings = []
         # print("segments", segments)
-        if self.special_tokens:
-            spec_to_id = {}
-            for i in range(len(self.vocab)):
-                if self.vocab[i].decode("latin-1") in self.special_tokens:
-                    spec_to_id[self.vocab[i]] = i
+
             # print(spec_to_id)
 
         for seg in segments:
@@ -61,7 +69,7 @@ class BPEtokenizer():
             # encoded_segment = b''
             # print("segment",segment)
             if self.special_tokens and segment in self.special_tokens:
-                encoded_text.append(spec_to_id[segment.encode('utf-8')])
+                encoded_text.append(self.spec_to_id[segment.encode('utf-8')])
                 # print("有special",segment)
             else:
                 word = [bytes([b]) for b in segment.encode('utf-8')]
@@ -73,10 +81,9 @@ class BPEtokenizer():
                     pair_to_rank = {}
                     for i in range(len(word)-1):
                         b = (word[i],word[i+1])
-                        if b in self.merges:
-                            for j in range(len(self.merges)):
-                                if self.merges[j] == b:
-                                    pair_to_rank[b] = j
+                        rank = self.merges_dic.get(b)
+                        if rank is not None:
+                            pair_to_rank[b] = rank
                     new_word = []
 
                     if pair_to_rank:
@@ -110,15 +117,16 @@ class BPEtokenizer():
                         # assert b"".join(new_word) == b"".join(word)
                 # print("word", word)
                 for j in range(len(word)):
-                    for i in range(len(self.vocab)):
-                        flag = False
-                        if self.vocab[i] == word[j]:
-                            encoded_text.append(i)
-                            # print("找到了",i,word[j])
-                            flag = True
-                            break
-                    if flag == False:
-                        print(f"{word[j]}没找到对应的vocab id")
+                    encoded_text.append(self.anti_vocab[word[j]])
+                    # for i in range(len(self.vocab)):
+                    #     flag = False
+                    #     if self.vocab[i] == word[j]:
+                    #         encoded_text.append(i)
+                    #         # print("找到了",i,word[j])
+                    #         flag = True
+                    #         break
+                    # if flag == False:
+                    #     print(f"{word[j]}没找到对应的vocab id")
 
         # print("我倒要看看encode成什么样了",encoded_text)
         return encoded_text

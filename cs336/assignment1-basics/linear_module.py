@@ -165,7 +165,7 @@ def scaled_dot_product_attention(queries,keys,values,mask):
     # print(dut)
     dut = dut / queries.shape[-1] ** 0.5
     
-    print(dut.shape)
+    # print(dut.shape)
     
     attention_score = softmax(dut, -1)
 

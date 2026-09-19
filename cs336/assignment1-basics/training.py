@@ -22,6 +22,24 @@ RESULTS_DIR = PROJECT_DIR / "section2_results"
 TINYSTORIES_DIR = DATA_DIR / "TinyStories"
 
 
+def _effective_cpu_count():
+    """容器里 os.cpu_count() 常报宿主核数（本机 128），实际 cgroup 配额可能小得多（本机 12）。"""
+    n = len(os.sched_getaffinity(0)) if hasattr(os, "sched_getaffinity") else (os.cpu_count() or 1)
+    try:                                    # cgroup v2
+        quota, period = open("/sys/fs/cgroup/cpu.max").read().split()
+        if quota != "max":
+            n = min(n, max(1, int(quota) // int(period)))
+    except Exception:
+        try:                                # cgroup v1
+            q = int(open("/sys/fs/cgroup/cpu/cpu.cfs_quota_us").read())
+            p = int(open("/sys/fs/cgroup/cpu/cpu.cfs_period_us").read())
+            if q > 0:
+                n = min(n, max(1, q // p))
+        except Exception:
+            pass
+    return max(1, n)
+
+
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data_path", type=str,
@@ -48,8 +66,8 @@ def parse_args():
     parser.add_argument("--weight_decay", type=float, default=0.1)
     parser.add_argument("--iters", type=int, default=100)
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
-    parser.add_argument("--preprocess_workers", type=int, default=min(os.cpu_count() or 1, 32),
-                        help="语料编码的并行进程数（1 = 单进程流式）")
+    parser.add_argument("--preprocess_workers", type=int, default=min(_effective_cpu_count(), 32),
+                        help="语料编码的并行进程数（1 = 单进程流式；默认按 cgroup CPU 配额取）")
     parser.add_argument("--save_path", type=str, default="tiny_stories.ckpt")
     parser.add_argument("--log_dir", type=str, default="logs")
     parser.add_argument("--log_interval", type=int, default=10)
