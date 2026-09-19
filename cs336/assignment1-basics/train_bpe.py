@@ -6,6 +6,7 @@ from cs336_basics.pretokenization_example import find_chunk_boundaries
 import multiprocessing as mp
 import regex as re
 from collections import Counter
+from pathlib import Path
 import pickle
 
 # def init_vocab(length=256):
@@ -15,6 +16,12 @@ import pickle
 #     return vocab
 import os,sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+# 路径约定：由脚本自身位置推导，Windows / Linux 通用
+PROJECT_DIR = Path(__file__).resolve().parent      # cs336/assignment1-basics
+DATA_DIR = PROJECT_DIR.parent / "data"             # cs336/data
+TINYSTORIES_DIR = DATA_DIR / "TinyStories"
+OWT_DIR = DATA_DIR / "owt_sample"
 
 def init_vocab():
     vocab = {i: bytes([i]) for i in range(256)}
@@ -152,7 +159,7 @@ def train_bpe(input_path: str | os.PathLike,
     **kwargs)
 
 
-# input_path = "/root/autodl-tmp/data/TinyStories/TinyStoriesV2-GPT4-train.txt"
+# input_path = str(TINYSTORIES_DIR / "TinyStoriesV2-GPT4-train.txt")
 # vocab_size = 10000
 # special_tokens = ["<|endoftext|>"]
 
@@ -171,7 +178,7 @@ if __name__ == "__main__":
     start = time.perf_counter()
 
     use_mp = True
-    input_path = "/root/autodl-tmp/data/owt_sample/owt_train.txt"
+    input_path = str(OWT_DIR / "owt_train.txt")
     vocab_size = 32000
     special_tokens = ["<|endoftext|>"]
     vocab, merge = main(input_path, vocab_size, special_tokens,use_mp)

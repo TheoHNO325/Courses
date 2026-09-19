@@ -1,11 +1,25 @@
 import json
 import random
 import time
+from pathlib import Path
+
 import numpy as np
 from bpe_tokenizer import BPEtokenizer
 
 # ------------------------------------------------------------
-# 1. 加载两个分词器 (TinyStories: 10K, OpenWebText: 32K)
+# 0. 路径约定：全部由脚本自身位置推导，Windows / Linux 通用
+#    PROJECT_DIR = cs336/assignment1-basics
+#    DATA_DIR    = cs336/data
+# ------------------------------------------------------------
+PROJECT_DIR = Path(__file__).resolve().parent
+DATA_DIR = PROJECT_DIR.parent / "data"
+RESULTS_DIR = PROJECT_DIR / "section2_results"
+TINYSTORIES_DIR = DATA_DIR / "TinyStories"
+OWT_DIR = DATA_DIR / "owt_sample"
+
+
+# ------------------------------------------------------------
+# 1. 加载分词器 (TinyStories: 10K, OpenWebText: 32K)
 # ------------------------------------------------------------
 def load_tokenizer(vocab_path, merge_path, special_tokens=["<|endoftext|>"]):
     with open(vocab_path, 'r') as f:
@@ -16,14 +30,6 @@ def load_tokenizer(vocab_path, merge_path, special_tokens=["<|endoftext|>"]):
     merges = [(a.encode('latin-1'), b.encode('latin-1')) for a, b in merges_json]
     return BPEtokenizer(vocab, merges, special_tokens)
 
-tiny_tokenizer = load_tokenizer(
-    "/root/autodl-tmp/cs336/assignment1-basics/section2_results/tinystories_vocab.json",
-    "/root/autodl-tmp/cs336/assignment1-basics/section2_results/tinystories_merges.json"
-)
-owt_tokenizer = load_tokenizer(
-    "/root/autodl-tmp/cs336/assignment1-basics/section2_results/openwebtext_vocab.json",  # 根据实际路径修改
-    "/root/autodl-tmp/cs336/assignment1-basics/section2_results/openwebtext_merges.json"
-)
 
 # ------------------------------------------------------------
 # 2. 采样函数 (从本地 txt 中随机抽取 10 条文档)
@@ -39,39 +45,19 @@ def sample_lines(file_path, num_samples=10, seed=42):
     else:
         return lines
 
-tiny_sample = sample_lines("/root/autodl-tmp/data/TinyStories/TinyStoriesV2-GPT4-valid.txt")
-owt_sample = sample_lines("/root/autodl-tmp/data/owt_sample/owt_valid.txt")
 
-# ------------------------------------------------------------
-# 3. (a) 分别用各自分词器编码，计算压缩比
-# ------------------------------------------------------------
 def encode_samples(tokenizer, samples):
-    return [tokenizer.encode(text) for text in samples]
+    return [tokenizer.encode(t) for t in samples]
 
-tiny_ids = encode_samples(tiny_tokenizer, tiny_sample)
-owt_ids = encode_samples(owt_tokenizer, owt_sample)
 
 def compression_ratio(texts, ids):
     total_bytes = sum(len(t.encode('utf-8')) for t in texts)
     total_tokens = sum(len(ids_i) for ids_i in ids)
     return total_bytes / total_tokens if total_tokens > 0 else 0
 
-ratio_tiny_on_tiny = compression_ratio(tiny_sample, tiny_ids)
-ratio_owt_on_owt = compression_ratio(owt_sample, owt_ids)
-
-print(f"(a) TinyStories tokenizer on TinyStories: {ratio_tiny_on_tiny:.2f} bytes/token")
-print(f"(a) OpenWebText tokenizer on OpenWebText: {ratio_owt_on_owt:.2f} bytes/token")
 
 # ------------------------------------------------------------
-# 4. (b) 交叉：用 TinyStories tokenizer 编码 OpenWebText 样本
-# ------------------------------------------------------------
-cross_ids = encode_samples(tiny_tokenizer, owt_sample)   # Tiny tokenizer on OWT text
-ratio_tiny_on_owt = compression_ratio(owt_sample, cross_ids)
-print(f"(b) TinyStories tokenizer on OpenWebText: {ratio_tiny_on_owt:.2f} bytes/token")
-# 定性说明：词汇不匹配导致切分更碎，压缩比明显下降。
-
-# ------------------------------------------------------------
-# 5. (c) 测量吞吐量 (bytes/second) 并估算 Pile 所需时间
+# 3. 测量吞吐量 (bytes/second) 并估算 Pile 所需时间
 # ------------------------------------------------------------
 def measure_throughput(tokenizer, file_path, sample_bytes=100*1024*1024):
     with open(file_path, 'r', encoding='utf-8') as f:
@@ -90,13 +76,9 @@ def measure_throughput(tokenizer, file_path, sample_bytes=100*1024*1024):
     print(f"Est. time for Pile (825GB): {hours:.2f} hours")
     return throughput
 
-print("\n(c) Measuring throughput for TinyStories tokenizer:")
-tiny_throughput = measure_throughput(tiny_tokenizer, "/root/autodl-tmp/data/TinyStories/TinyStoriesV2-GPT4-valid.txt")
-print("Measuring throughput for OpenWebText tokenizer:")
-owt_throughput = measure_throughput(owt_tokenizer, "/root/autodl-tmp/data/owt_sample/owt_valid.txt")
 
 # ------------------------------------------------------------
-# 6. (d) 编码整个训练集和验证集，保存为 uint16 numpy 数组
+# 4. 编码整个训练集和验证集，保存为 uint16 numpy 数组
 # ------------------------------------------------------------
 def encode_file_to_npy(tokenizer, input_file, output_npy, chunk_size=10000):
     """
@@ -130,22 +112,71 @@ def encode_file_to_npy(tokenizer, input_file, output_npy, chunk_size=10000):
     fp.flush()
     print(f"Saved to {output_npy}")
 
-# TinyStories 训练集和验证集
-encode_file_to_npy(tiny_tokenizer,
-                   "/root/autodl-tmp/data/TinyStories/TinyStoriesV2-GPT4-train.txt",
-                   "tiny_train.npy")
-encode_file_to_npy(tiny_tokenizer,
-                   "/root/autodl-tmp/data/TinyStories/TinyStoriesV2-GPT4-valid.txt",
-                   "tiny_valid.npy")
 
-# OpenWebText 训练集和验证集（路径请根据实际情况修改）
-encode_file_to_npy(owt_tokenizer,
-                   "/root/autodl-tmp/data/owt_sample/owt_train.txt",   # 假设有训练集
-                   "owt_train.npy")
-encode_file_to_npy(owt_tokenizer,
-                   "/root/autodl-tmp/data/owt_sample/owt_valid.txt",
-                   "owt_valid.npy")
+def main():
+    tiny_tokenizer = load_tokenizer(
+        str(RESULTS_DIR / "tinystories_vocab.json"),
+        str(RESULTS_DIR / "tinystories_merges.json")
+    )
+    owt_tokenizer = load_tokenizer(
+        str(RESULTS_DIR / "openwebtext_vocab.json"),
+        str(RESULTS_DIR / "openwebtext_merges.json")
+    )
 
-# 验证 uint16 的合理性（检查最大 ID < 65536）
-max_id = max(max(ids) for ids in tiny_ids + owt_ids + cross_ids)
-print(f"Maximum token ID: {max_id} (uint16 max=65535) – 合适")
+    tiny_sample = sample_lines(str(TINYSTORIES_DIR / "TinyStoriesV2-GPT4-valid.txt"))
+    owt_sample = sample_lines(str(OWT_DIR / "owt_valid.txt"))
+
+    # --------------------------------------------------------
+    # (a) 分别用各自分词器编码，计算压缩比
+    # --------------------------------------------------------
+    tiny_ids = encode_samples(tiny_tokenizer, tiny_sample)
+    owt_ids = encode_samples(owt_tokenizer, owt_sample)
+
+    ratio_tiny_on_tiny = compression_ratio(tiny_sample, tiny_ids)
+    ratio_owt_on_owt = compression_ratio(owt_sample, owt_ids)
+
+    print(f"(a) TinyStories tokenizer on TinyStories: {ratio_tiny_on_tiny:.2f} bytes/token")
+    print(f"(a) OpenWebText tokenizer on OpenWebText: {ratio_owt_on_owt:.2f} bytes/token")
+
+    # --------------------------------------------------------
+    # (b) 交叉：用 TinyStories tokenizer 编码 OpenWebText 样本
+    # --------------------------------------------------------
+    cross_ids = encode_samples(tiny_tokenizer, owt_sample)   # Tiny tokenizer on OWT text
+    ratio_tiny_on_owt = compression_ratio(owt_sample, cross_ids)
+    print(f"(b) TinyStories tokenizer on OpenWebText: {ratio_tiny_on_owt:.2f} bytes/token")
+    # 定性说明：词汇不匹配导致切分更碎，压缩比明显下降。
+
+    # --------------------------------------------------------
+    # (c) 吞吐量与 Pile 时间估算
+    # --------------------------------------------------------
+    print("\n(c) Measuring throughput for TinyStories tokenizer:")
+    tiny_throughput = measure_throughput(tiny_tokenizer, str(TINYSTORIES_DIR / "TinyStoriesV2-GPT4-valid.txt"))
+    print("Measuring throughput for OpenWebText tokenizer:")
+    owt_throughput = measure_throughput(owt_tokenizer, str(OWT_DIR / "owt_valid.txt"))
+
+    # --------------------------------------------------------
+    # (d) 编码整个训练集和验证集，保存为 uint16 numpy 数组
+    # --------------------------------------------------------
+    # TinyStories 训练集和验证集
+    encode_file_to_npy(tiny_tokenizer,
+                       str(TINYSTORIES_DIR / "TinyStoriesV2-GPT4-train.txt"),
+                       "tiny_train.npy")
+    encode_file_to_npy(tiny_tokenizer,
+                       str(TINYSTORIES_DIR / "TinyStoriesV2-GPT4-valid.txt"),
+                       "tiny_valid.npy")
+
+    # OpenWebText 训练集和验证集
+    encode_file_to_npy(owt_tokenizer,
+                       str(OWT_DIR / "owt_train.txt"),
+                       "owt_train.npy")
+    encode_file_to_npy(owt_tokenizer,
+                       str(OWT_DIR / "owt_valid.txt"),
+                       "owt_valid.npy")
+
+    # 验证 uint16 的合理性（检查最大 ID < 65536）
+    max_id = max(max(ids) for ids in tiny_ids + owt_ids + cross_ids)
+    print(f"Maximum token ID: {max_id} (uint16 max=65535) – 合适")
+
+
+if __name__ == "__main__":
+    main()
