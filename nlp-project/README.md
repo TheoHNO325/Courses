@@ -25,18 +25,19 @@ CPU 侧的数据、Tokenizer 和最小推理链路已经基本打通：
 
 ## 仓库内容说明（重要）
 
-本仓库**只包含代码、文档、配置和统计报告**。以下内容被 `.gitignore` 排除，需要按「数据集下载」一节自行获取：
+本仓库**只包含代码、文档、配置和统计报告**。以下内容被 `.gitignore` 排除，需要按第 3、4 节自行获取：
 
 | 类别 | 位置 | 本地体量 |
 |---|---|---|
-| 全部数据集 | `data/raw/`、`data/interim/`、`data/processed/` | 约 25 GB |
+| 全部数据集 | `data/raw/`、`data/interim/`、`data/processed/` | 约 27.6 GB |
 | 模型权重（NLLB-200） | `outputs/nllb-200-distilled-600M/` | 2.46 GB |
 | tokenizer 文件 | `outputs/nllb-tokenizer/`、`outputs/hy-mt2-tokenizer/` | 约 27 MB |
 | CS336 BPE 词表产物 | `outputs/cs336-bpe-fertility/` | 约 0.5 MB |
 | HuggingFace 缓存 | `.hf-cache/` | — |
-| 含逐句原始语料的报告 | 见「报告的许可边界」一节 | — |
+| 含逐句原始语料的报告 | 见第 5 节 | — |
 
-数据登记表 `data/manifests/datasets.csv`、下载计划 `data/manifests/download_plan.json` 与统计报告 `reports/` 是跟踪的。
+数据登记表 `data/manifests/datasets.csv`、下载计划 `data/manifests/download_plan.json`、
+期望布局 `data/manifests/expected_layout.json` 与统计报告 `reports/` 是跟踪的。
 
 ## 数据目录约定
 
@@ -147,7 +148,8 @@ HY-MT2 为 1.8B 因果语言模型，CPU 侧只做极少量冒烟测试，不建
 
 ## 3. 数据集下载
 
-所有数据集由 `tools/download_datasets.py` 统一获取，支持**断点续传**：中断后重新执行即可从断点继续，已完整的文件会跳过并校验体积。
+所有数据集由 `tools/download_datasets.py` 统一获取，支持**断点续传**与**校验**：每个文件都对照计划中
+固定的字节数校验，计划中带 SHA-256 的文件还会校验哈希；中断后重新执行会从断点继续，已完整的文件直接跳过。
 
 ```powershell
 # 1) 生成下载计划（查询各数据集实际文件清单与体积，写入 data/manifests/download_plan.json）
@@ -156,11 +158,8 @@ HY-MT2 为 1.8B 因果语言模型，CPU 侧只做极少量冒烟测试，不建
 # 2) 查看计划中的全部目标
 & .venv\Scripts\python.exe tools\download_datasets.py --list
 
-# 3) 下载全部目标（约 25 GB；CUTE 单项 22.9 GB 耗时较长）
+# 3) 下载全部目标（约 27.6 GB；CUTE 单项 22.9 GB 耗时较长，实测约 12 MB/s）
 & .venv\Scripts\python.exe tools\download_datasets.py --all
-
-# 或只下载指定目标（逗号分隔）
-& .venv\Scripts\python.exe tools\download_datasets.py --only openpecha_c0a2dd042,modern_tibetan_corpus,shajiu_publiccorpus_samples
 
 # 4) 抽检：用真实读取器逐个打开，确认可用而非仅仅存在
 & .venv\Scripts\python.exe tools\spotcheck_downloads.py
@@ -169,55 +168,107 @@ HY-MT2 为 1.8B 因果语言模型，CPU 侧只做极少量冒烟测试，不建
 & .venv\Scripts\python.exe tools\update_dataset_manifest.py --apply
 ```
 
-### 3.1 目标清单
+`plan_downloads.py` 带完整性闸门：只要 11 个必需目标里有任何一个因网络抖动没取到，它就**不会**覆盖已有计划，
+而是报错退出，避免把一个残缺的计划写进去。
+
+### 3.1 目标清单（11 项）
 
 | 目标 id | 数据集 | 体量 | 许可 | 获取方式 |
 |---|---|---:|---|---|
-| `openpecha_c0a2dd042` | OpenPecha 平行语料 | 80 MB | 仓库无 LICENSE 文件 | GitHub tarball |
-| `modern_tibetan_corpus` | Modern Tibetan Corpus | 78 MB | MIT | GitHub tarball |
-| `shajiu_publiccorpus_samples` | Shajiu/PublicCorpus 样例 | 23 MB | 自定义研究条款 | GitHub tarball |
-| `dongbamie_code` | DongbaMIE 代码仓 | 3 MB | — | GitHub tarball |
+| `flores200` | FLORES-200 `bod_Tibt`/`zho_Hans` dev+devtest | 547 KB | CC-BY-SA-4.0 | HF（**gated**） |
+| `mitra_v2_full` | MITRA Parallel v2 全量匹配 | 80.5 MB | CC-BY-SA-4.0 | 固定 commit 的 HTTPS |
+| `mitra_v2_eval` | MITRA 官方 `bo2zh` + `lotsawahouse` | 1.4 MB | 见仓库条款 | 固定 commit 的 HTTPS |
 | `dongbamie` | DongbaMIE 标注 + 图像 | 1.8 GB | CC-BY-NC-SA-4.0 | HF（**gated**） |
 | `bdrc_tibetan_ocr_benchmark` | BDRC 藏文 OCR 基准 | 234 MB | CC0-1.0 | HF |
-| `dongba1800` | Dongba1800 单字符检测 | 222 MB | 许可存在文本冲突 | figshare |
 | `cute_bo_subset` | CUTE 藏文子集 | 22.9 GB | CC-BY-4.0 | HF |
+| `openpecha_c0a2dd042` | OpenPecha 平行语料 | 84 MB | 仓库无 LICENSE 文件 | GitHub tarball |
+| `modern_tibetan_corpus` | Modern Tibetan Corpus | 82 MB | MIT | GitHub tarball |
+| `shajiu_publiccorpus_samples` | Shajiu/PublicCorpus 样例 | 24 MB | 自定义研究条款 | GitHub tarball |
+| `dongbamie_code` | DongbaMIE 代码仓（论文图与代码） | 3.6 MB | — | GitHub tarball |
+| `dongba1800` | Dongba1800 单字符检测 | 222 MB | 许可存在文本冲突 | figshare |
 
 ```powershell
-# 也可分批下载
+# 也可按需分批下载
+& .venv\Scripts\python.exe tools\download_datasets.py --only flores200,mitra_v2_full,mitra_v2_eval
 & .venv\Scripts\python.exe tools\download_datasets.py --only dongbamie,bdrc_tibetan_ocr_benchmark,dongba1800
 & .venv\Scripts\python.exe tools\download_datasets.py --only cute_bo_subset
 ```
 
-### 3.2 关键数据集的精确来源
+### 3.2 为什么下载后目录结构会与本机一致
 
-```text
-FLORES-200（gated，仅作固定评测集，绝不参与训练或调参）
-  https://huggingface.co/datasets/facebook/flores
-  commit 71abf77d8b7beb5cfef59898d6b24d92ab7654fc
-  本地：data/raw/flores200_20260529/  bod_Tibt dev 997 + devtest 1012
+三个可能造成路径错位的点都已显式处理：
 
-MITRA Parallel v2 全量训练匹配（836,559 条，Wylie 源文，需用 pyewts 转藏文 Unicode）
-  https://github.com/dharmamitra/mitra-parallel
-  commit bf7b340cd4f75bda3089479a6367ad94a8cbee10
-  文件：v2/bo-zh_matches.ndjson.gz  ->  data/raw/mitra_v2/
-  SHA-256: 9179AD2F491A77FCEB06A52FDD93E1D2AECE3AD8623EF0BAA18A08E6373DF897
+1. **FLORES 的 HF 路径带前缀**。HuggingFace 上文件位于 `data/language/<lang>/<split>.parquet`，而本机布局
+   是 `<lang>/<split>.parquet`。计划里对该目标设置 `strip_prefix="data/language/"`，下载后自动搬到正确位置。
+2. **MITRA 用固定 commit**，而非分支名：
+   `https://raw.githubusercontent.com/dharmamitra/mitra-parallel/bf7b340cd4f75bda3089479a6367ad94a8cbee10/...`，
+   保证上游更新不会改变取到的内容。
+3. **每个数据集的目标目录写死在计划里**（如 `data/raw/flores200_20260529`），不随工具或日期变化。
 
-MITRA 官方评测集（固定测试，不混入训练）
-  v2/evaluation/bo-zh/bo2zh.tsv        2000 条，古典佛典中文
-  v2/evaluation/bo-zh/lotsawahouse.tsv 1660 条，现代仪轨中文
-  ->  data/raw/mitra_v2_eval/
-```
-
-其余数据集的精确 URL、commit 与 SHA-256 见 `data/manifests/datasets.csv`。
-MITRA 与 FLORES 的下载记录分别见 `reports/mitra_v2_assessment.md` 与 `reports/flores200_download_record.md`。
-
-### 3.3 CUTE 说明
+结果就是下载完成后 `data/raw/` 下的目录名、层级与文件名与本机完全相同——这一点由第 4 节的校验脚本自动确认。
 
 CUTE-Datasets 全量 50.6 GB，本项目**只取藏文相关部分**：`parallel-corpus/bo.txt`（11.2 GB）与
-`non-parallel-corpus/n-bo.txt`（11.7 GB）。CUTE 是机器翻译合成数据，按项目原则**只能做合成数据消融，
+`non-parallel-corpus/n-bo.txt`（11.7 GB）。它是机器翻译合成数据，按项目原则**只能做消融，
 不得作为黄金评测集**。
 
-## 4. 报告的许可边界
+## 4. 生成派生数据并校验布局
+
+`data/processed/` 与 `data/interim/` 不是下载来的，而是由 `src/` 里的脚本从原始数据算出来的。
+完整复现顺序如下：
+
+```powershell
+# 4.1 派生验证集划分与过滤结果 -> data/processed/mitra_v2_conservative/
+& .venv\Scripts\python.exe src\prepare_mitra.py `
+    --input data\raw\mitra_v2\bo-zh_matches.ndjson.gz `
+    --config configs\mitra_v2_filter.json `
+    --output-dir data\processed\mitra_v2_conservative `
+    --report reports\mitra_v2_filtering.json
+
+# 4.2 分词器 fertility 实验的中间抽样文本 -> data/interim/fertility/
+& .venv\Scripts\python.exe src\audit_fertility.py
+```
+
+`src/audit_fertility.py` 需要 `outputs/nllb-tokenizer/` 与 `outputs/hy-mt2-tokenizer/`（见第 2.2 节）。
+
+### 4.3 一键校验：确认你的数据与本机一致
+
+```powershell
+# 全量校验（含逐文件 SHA-256）
+& .venv\Scripts\python.exe tools\verify_data_layout.py
+
+# 快速校验（只比目录、文件数、字节数与目录摘要）
+& .venv\Scripts\python.exe tools\verify_data_layout.py --quick
+
+# 只校验某几个数据集
+& .venv\Scripts\python.exe tools\verify_data_layout.py --only data/raw/flores200_20260529,data/raw/mitra_v2
+```
+
+判定依据是仓库中跟踪的 `data/manifests/expected_layout.json`，它记录了 15 个目录的
+文件数、总字节数、目录摘要（relpath+size 的 SHA-256），以及体积较小文件的逐个 SHA-256。
+校验通过时输出 `RESULT: data layout matches the canonical spec`，任一项不符则以非零码退出：
+
+```text
+data/raw/flores200_20260529     OK         4 files        0.56 MB
+      verified 4 file hashes
+data/raw/mitra_v2               OK         1 files       80.46 MB
+data/raw/mitra_v2_eval          OK         2 files        1.37 MB
+      verified 2 file hashes
+...
+RESULT: data layout matches the canonical spec
+```
+
+如果某个数据集的目录名或层级与本机不同，这一步会直接报 FAIL，不需要人工比对。
+
+新增数据集后，用 `tools/snapshot_data_layout.py` 重新生成该规范文件：
+
+```powershell
+& .venv\Scripts\python.exe tools\snapshot_data_layout.py
+```
+
+> **说明**：`data/raw/flores200_bod_tibt/` 与 `data/raw/mitra_v2_probe/` 是早期实验留下的非规范目录
+> （已被 `flores200_20260529/` 取代），不属于规范布局，脚本会提示它们是 legacy、可安全忽略或删除。
+
+## 5. 报告的许可边界
 
 以下三个报告文件包含**逐句原始语料**，因此被 `.gitignore` 排除，只保留在本地：
 
@@ -230,7 +281,7 @@ CUTE-Datasets 全量 50.6 GB，本项目**只取藏文相关部分**：`parallel
 其余报告只包含统计量、未知字符片段（单个汉字）与解读文字，因此保留在仓库中。
 需要这些样例时，按第 3 节下载对应数据集后本地重新生成即可。
 
-## 5. 当前可复现实验
+## 6. 当前可复现实验
 
 FLORES-200 藏中全量对齐检查已经可以独立运行：
 
@@ -240,7 +291,7 @@ FLORES-200 藏中全量对齐检查已经可以独立运行：
 
 脚本默认限制为 256 MB 内存和 2 个 CPU 线程，生成机器可读汇总与 20 条人工检查表。交互式说明见 `notebooks/01_flores_alignment_check.ipynb`。环境依赖固定在 `requirements-cpu.txt`。
 
-### 5.1 重新生成 tokenizer 实验报告
+### 6.1 重新生成 tokenizer 实验报告
 
 ```powershell
 & .venv\Scripts\python.exe tools\make_tokenizer_report.py
@@ -249,15 +300,43 @@ FLORES-200 藏中全量对齐检查已经可以独立运行：
 
 产物为 `reports/tokenizer_experiments.html`，自包含、可离线打开。
 
-### 5.2 工具脚本一览
+### 6.2 从零复现的完整顺序
+
+```powershell
+git clone https://github.com/TheoHNO325/Courses.git
+cd Courses\nlp-project
+
+python -m venv .venv
+& .venv\Scripts\python.exe -m pip install -r requirements-cpu.txt
+& .venv\Scripts\python.exe tools\verify_env.py                 # 1. 环境
+
+# 2. 模型
+& .venv\Scripts\python.exe -c "from huggingface_hub import snapshot_download; snapshot_download('facebook/nllb-200-distilled-600M', local_dir='outputs/nllb-200-distilled-600M')"
+
+# 3. 数据（约 27.6 GB）
+& .venv\Scripts\python.exe tools\plan_downloads.py
+& .venv\Scripts\python.exe tools\download_datasets.py --all
+& .venv\Scripts\python.exe tools\spotcheck_downloads.py
+
+# 4. 派生数据
+& .venv\Scripts\python.exe src\prepare_mitra.py --input data\raw\mitra_v2\bo-zh_matches.ndjson.gz --config configs\mitra_v2_filter.json --output-dir data\processed\mitra_v2_conservative --report reports\mitra_v2_filtering.json
+& .venv\Scripts\python.exe src\audit_fertility.py
+
+# 5. 校验：应输出 RESULT: data layout matches the canonical spec
+& .venv\Scripts\python.exe tools\verify_data_layout.py
+```
+
+### 6.3 工具脚本一览
 
 | 脚本 | 用途 |
 |---|---|
-| `tools/plan_downloads.py` | 查询数据集清单，生成下载计划 |
-| `tools/download_datasets.py` | 断点续传下载数据集 |
+| `tools/plan_downloads.py` | 查询数据集清单、生成下载计划；缺目标时拒绝写出残缺计划 |
+| `tools/download_datasets.py` | 断点续传 + 尺寸/SHA-256 校验下载数据集 |
 | `tools/spotcheck_downloads.py` | 抽检下载结果是否真正可读 |
 | `tools/update_dataset_manifest.py` | 把下载结果登记回 `datasets.csv` |
 | `tools/check_manifest.py` | 校验 `datasets.csv` 结构完整性 |
+| `tools/snapshot_data_layout.py` | 生成 `data/manifests/expected_layout.json` 规范 |
+| `tools/verify_data_layout.py` | 校验本地数据布局是否与规范一致 |
 | `tools/verify_env.py` | 校验环境与 NLLB 资产 |
 | `tools/fetch_wheels.py` | 用 urllib 取 wheel，绕过 pip 网络问题 |
 | `tools/make_tokenizer_report.py` | 生成 tokenizer 实验 HTML 报告 |

@@ -1,0 +1,590 @@
+{
+  "generated_from": "tools/plan_downloads.py",
+  "note": "Targets cover every dataset under data/raw/. Derived data (data/processed/, data/interim/) is produced by the src/ scripts; see README sections 3 and 6.",
+  "legacy_non_canonical": [
+    "data/raw/flores200_bod_tibt",
+    "data/raw/flores200_zho_hans",
+    "data/raw/mitra_v2_probe"
+  ],
+  "targets": [
+    {
+      "id": "flores200",
+      "transport": "hf",
+      "repo": "facebook/flores",
+      "type": "dataset",
+      "gated": true,
+      "dest": "data/raw/flores200_20260529",
+      "strip_prefix": "data/language/",
+      "files": [
+        {
+          "path": "data/language/bod_Tibt/dev-00000-of-00001.parquet",
+          "size": 160284,
+          "dest": "bod_Tibt/dev-00000-of-00001.parquet",
+          "sha256": "5F7949E1302C5322EE132368B3374215BBD8FFAA24B30E4756777AFD8EE6E06F"
+        },
+        {
+          "path": "data/language/bod_Tibt/devtest-00000-of-00001.parquet",
+          "size": 169983,
+          "dest": "bod_Tibt/devtest-00000-of-00001.parquet",
+          "sha256": "D3A3F62EF18A5FEB99AA619332379BCA65D47F713F65B85EF8138DF36486D622"
+        },
+        {
+          "path": "data/language/zho_Hans/dev-00000-of-00001.parquet",
+          "size": 113002,
+          "dest": "zho_Hans/dev-00000-of-00001.parquet",
+          "sha256": "F9151A874D14B3DD9086C7F788425618EB99E12246BC0FAE99EA33FD363D19E8"
+        },
+        {
+          "path": "data/language/zho_Hans/devtest-00000-of-00001.parquet",
+          "size": 117226,
+          "dest": "zho_Hans/devtest-00000-of-00001.parquet",
+          "sha256": "10E0038BEF15832B981F50FECE056F7F6ECDE8CCFFA837A08999BB2B5575D973"
+        }
+      ],
+      "total_size": 560495,
+      "note": "Evaluation only. Never train or tune on FLORES. Requires accepting the gated terms."
+    },
+    {
+      "id": "mitra_v2_full",
+      "transport": "url",
+      "type": "dataset",
+      "dest": "data/raw/mitra_v2",
+      "files": [
+        {
+          "path": "bo-zh_matches.ndjson.gz",
+          "url": "https://raw.githubusercontent.com/dharmamitra/mitra-parallel/bf7b340cd4f75bda3089479a6367ad94a8cbee10/v2/bo-zh_matches.ndjson.gz",
+          "size": 80459833,
+          "sha256": "9179AD2F491A77FCEB06A52FDD93E1D2AECE3AD8623EF0BAA18A08E6373DF897"
+        }
+      ],
+      "total_size": 80459833,
+      "note": "836,559 records; Wylie source text, convert with pyewts."
+    },
+    {
+      "id": "mitra_v2_eval",
+      "transport": "url",
+      "type": "dataset",
+      "dest": "data/raw/mitra_v2_eval",
+      "files": [
+        {
+          "path": "bo2zh.tsv",
+          "url": "https://raw.githubusercontent.com/dharmamitra/mitra-parallel/bf7b340cd4f75bda3089479a6367ad94a8cbee10/v2/evaluation/bo-zh/bo2zh.tsv",
+          "size": 897700,
+          "sha256": "324138D98644402C6231F67AE709B9FA16247DC5C1DA240117FB524E4BAA9D58"
+        },
+        {
+          "path": "lotsawahouse.tsv",
+          "url": "https://raw.githubusercontent.com/dharmamitra/mitra-parallel/bf7b340cd4f75bda3089479a6367ad94a8cbee10/v2/evaluation/bo-zh/lotsawahouse.tsv",
+          "size": 469575,
+          "sha256": "F4FF4C0A889178C1D534B66D926EF6B2B19EE84C84652C327F34B2B47B812189"
+        }
+      ],
+      "total_size": 1367275,
+      "note": "Fixed official held-out benchmarks. Never train or tune on these."
+    },
+    {
+      "id": "dongbamie",
+      "transport": "hf",
+      "repo": "thinklis/DongbaMIE",
+      "type": "dataset",
+      "gated": true,
+      "dest": "data/raw/dongbamie",
+      "strip_prefix": null,
+      "files": [
+        {
+          "path": ".gitattributes",
+          "size": 2594
+        },
+        {
+          "path": "README.md",
+          "size": 3080
+        },
+        {
+          "path": "dongbaMIE_paragraph_dev.json",
+          "size": 1837922
+        },
+        {
+          "path": "dongbaMIE_paragraph_test.json",
+          "size": 1934773
+        },
+        {
+          "path": "dongbaMIE_paragraph_train.json",
+          "size": 14718036
+        },
+        {
+          "path": "dongbaMIE_sentence_dev.json",
+          "size": 2581813
+        },
+        {
+          "path": "dongbaMIE_sentence_test.json",
+          "size": 2580824
+        },
+        {
+          "path": "dongbaMIE_sentence_train.json",
+          "size": 20683365
+        },
+        {
+          "path": "paragraph.zip",
+          "size": 951488664
+        },
+        {
+          "path": "sentence.zip",
+          "size": 929144405
+        }
+      ],
+      "total_size": 1924975476,
+      "note": "CC-BY-NC-SA-4.0. Never redistribute outside the team."
+    },
+    {
+      "id": "bdrc_tibetan_ocr_benchmark",
+      "transport": "hf",
+      "repo": "BDRC/tibetan-ocr-benchmark",
+      "type": "dataset",
+      "gated": false,
+      "dest": "data/raw/bdrc_tibetan_ocr",
+      "strip_prefix": null,
+      "files": [
+        {
+          "path": ".gitattributes",
+          "size": 2504
+        },
+        {
+          "path": "README.md",
+          "size": 3799
+        },
+        {
+          "path": "data/test-00000-of-00001.parquet",
+          "size": 122463224
+        },
+        {
+          "path": "runs/README.md",
+          "size": 1791
+        },
+        {
+          "path": "runs/catalog.csv",
+          "size": 26068
+        },
+        {
+          "path": "runs/cer_summary.csv",
+          "size": 6299
+        },
+        {
+          "path": "runs/compute_cer.py",
+          "size": 5324
+        },
+        {
+          "path": "runs/ground_truth.csv",
+          "size": 1339380
+        },
+        {
+          "path": "runs/predictions/2026-03-15T13-10-12.csv",
+          "size": 1192017
+        },
+        {
+          "path": "runs/predictions/2026-03-15T20-41-05.csv",
+          "size": 1075126
+        },
+        {
+          "path": "runs/predictions/2026-03-15T20-54-43.csv",
+          "size": 1079914
+        },
+        {
+          "path": "runs/predictions/2026-03-15T21-08-47.csv",
+          "size": 1363306
+        },
+        {
+          "path": "runs/predictions/2026-03-16T07-39-22.csv",
+          "size": 1192020
+        },
+        {
+          "path": "runs/predictions/2026-03-16T07-52-53.csv",
+          "size": 1125123
+        },
+        {
+          "path": "runs/predictions/2026-03-16T07-55-03.csv",
+          "size": 1125214
+        },
+        {
+          "path": "runs/predictions/2026-03-16T13-40-01.csv",
+          "size": 340537
+        },
+        {
+          "path": "runs/predictions/2026-03-17T08-21-29.csv",
+          "size": 1871128
+        },
+        {
+          "path": "runs/predictions/2026-03-17T09-26-53.csv",
+          "size": 650026
+        },
+        {
+          "path": "runs/predictions/2026-03-17T14-23-34.csv",
+          "size": 447151
+        },
+        {
+          "path": "runs/predictions/2026-03-17T19-10-12.csv",
+          "size": 1067557
+        },
+        {
+          "path": "runs/predictions/2026-03-17T19-35-30.csv",
+          "size": 1320427
+        },
+        {
+          "path": "runs/predictions/2026-03-17T19-43-31.csv",
+          "size": 1258469
+        },
+        {
+          "path": "runs/predictions/2026-03-19T06-05-34.csv",
+          "size": 1632227
+        },
+        {
+          "path": "runs/predictions/2026-03-19T07-00-44.csv",
+          "size": 1012968
+        },
+        {
+          "path": "runs/predictions/2026-03-19T07-28-16.csv",
+          "size": 556371
+        },
+        {
+          "path": "runs/predictions/2026-03-19T07-40-01.csv",
+          "size": 714157
+        },
+        {
+          "path": "runs/predictions/2026-03-19T08-27-06.csv",
+          "size": 1522233
+        },
+        {
+          "path": "runs/predictions/2026-03-19T09-47-37.csv",
+          "size": 1221807
+        },
+        {
+          "path": "runs/predictions/2026-03-19T12-33-14.csv",
+          "size": 1006659
+        },
+        {
+          "path": "runs/predictions/2026-03-19T12-46-50.csv",
+          "size": 1387965
+        },
+        {
+          "path": "runs/predictions/2026-03-19T13-20-18.csv",
+          "size": 913745
+        },
+        {
+          "path": "runs/predictions/2026-03-19T13-32-48.csv",
+          "size": 1086466
+        },
+        {
+          "path": "runs/predictions/2026-03-19T13-47-44.csv",
+          "size": 527837
+        },
+        {
+          "path": "runs/predictions/2026-03-19T13-56-31.csv",
+          "size": 1206966
+        },
+        {
+          "path": "runs/predictions/2026-03-22T11-32-45.csv",
+          "size": 736819
+        },
+        {
+          "path": "runs/predictions/2026-03-22T11-35-03.csv",
+          "size": 924581
+        },
+        {
+          "path": "runs/predictions/2026-03-22T15-00-30.csv",
+          "size": 747045
+        },
+        {
+          "path": "runs/predictions/2026-03-22T15-07-38.csv",
+          "size": 910140
+        },
+        {
+          "path": "runs/predictions/2026-03-22T18-06-32.csv",
+          "size": 7690566
+        },
+        {
+          "path": "runs/predictions/2026-03-23T07-31-54.csv",
+          "size": 767914
+        },
+        {
+          "path": "runs/predictions/2026-03-23T10-15-10.csv",
+          "size": 6096971
+        },
+        {
+          "path": "runs/predictions/2026-04-01T12-22-47.csv",
+          "size": 1329549
+        },
+        {
+          "path": "runs/predictions/2026-04-02T00-00-01.csv",
+          "size": 1048735
+        },
+        {
+          "path": "runs/predictions/2026-04-02T00-00-02.csv",
+          "size": 1095772
+        },
+        {
+          "path": "runs/predictions/2026-04-02T00-00-03.csv",
+          "size": 943293
+        },
+        {
+          "path": "runs/predictions/2026-04-02T07-33-43.csv",
+          "size": 1359943
+        },
+        {
+          "path": "runs/predictions/2026-04-02T11-14-25.csv",
+          "size": 1298354
+        },
+        {
+          "path": "runs/predictions/2026-04-02T12-54-48.csv",
+          "size": 1312794
+        },
+        {
+          "path": "runs/predictions/2026-04-02T14-06-48.csv",
+          "size": 1125142
+        },
+        {
+          "path": "runs/predictions/2026-04-02T14-22-09.csv",
+          "size": 1125172
+        },
+        {
+          "path": "runs/predictions/2026-04-02T14-26-10.csv",
+          "size": 1183618
+        },
+        {
+          "path": "runs/predictions/2026-04-03T14-32-18.csv",
+          "size": 8063774
+        },
+        {
+          "path": "runs/predictions/2026-04-07T14-23-34.csv",
+          "size": 449630
+        },
+        {
+          "path": "runs/predictions/2026-04-10T07-40-01.csv",
+          "size": 886771
+        },
+        {
+          "path": "runs/predictions/2026-04-17T23-17-34.csv",
+          "size": 435565
+        },
+        {
+          "path": "runs/predictions/2026-04-18T08-11-34.csv",
+          "size": 665781
+        },
+        {
+          "path": "runs/predictions/2026-04-23T18-37-34.csv",
+          "size": 1145444
+        },
+        {
+          "path": "runs/predictions/2026-04-23T20-17-34.csv",
+          "size": 1163790
+        },
+        {
+          "path": "runs/predictions/2026-05-01T12-09-29.csv",
+          "size": 5007856
+        },
+        {
+          "path": "runs/predictions/2026-05-01T18-15-02.csv",
+          "size": 2919262
+        },
+        {
+          "path": "runs/predictions/2026-05-08T14-59-10.csv",
+          "size": 1117456
+        },
+        {
+          "path": "runs/predictions/2026-05-08T14-59-16.csv",
+          "size": 2768393
+        },
+        {
+          "path": "runs/predictions/2026-05-09T06-35-01.csv",
+          "size": 519858
+        },
+        {
+          "path": "runs/predictions/2026-05-09T06-37-39.csv",
+          "size": 3763345
+        },
+        {
+          "path": "runs/predictions/2026-05-09T06-53-51.csv",
+          "size": 1858175
+        },
+        {
+          "path": "runs/predictions/2026-05-09T09-35-59.csv",
+          "size": 317911
+        },
+        {
+          "path": "runs/predictions/2026-05-09T12-23-57.csv",
+          "size": 41296
+        },
+        {
+          "path": "runs/predictions/2026-05-09T14-40-14.csv",
+          "size": 330047
+        },
+        {
+          "path": "runs/predictions/2026-05-09T15-21-17.csv",
+          "size": 363702
+        },
+        {
+          "path": "runs/predictions/2026-05-09T15-32-00.csv",
+          "size": 1087647
+        },
+        {
+          "path": "runs/predictions/2026-05-09T15-44-15.csv",
+          "size": 1056798
+        },
+        {
+          "path": "runs/predictions/2026-05-10T07-12-05.csv",
+          "size": 386550
+        },
+        {
+          "path": "runs/predictions/2026-05-10T18-11-21.csv",
+          "size": 5360521
+        },
+        {
+          "path": "runs/predictions/2026-05-11T11-57-26.csv",
+          "size": 2291408
+        },
+        {
+          "path": "runs/predictions/2026-05-11T13-08-21.csv",
+          "size": 2957332
+        },
+        {
+          "path": "runs/predictions/2026-05-12T05-14-18.csv",
+          "size": 2969035
+        },
+        {
+          "path": "runs/predictions/2026-05-24T16-23-15.csv",
+          "size": 2850737
+        },
+        {
+          "path": "runs/predictions/2026-05-28T18-44-47.csv",
+          "size": 1126831
+        },
+        {
+          "path": "runs/predictions/2026-06-01T11-38-42.csv",
+          "size": 829594
+        },
+        {
+          "path": "runs/predictions/2026-06-03T11-53-09.csv",
+          "size": 440503
+        },
+        {
+          "path": "runs/predictions/2026-06-11T06-41-57.csv",
+          "size": 2141659
+        },
+        {
+          "path": "runs/predictions/2026-06-12T12-20-38.csv",
+          "size": 1275691
+        },
+        {
+          "path": "runs/predictions/2026-07-19T10-40-05.csv",
+          "size": 804199
+        },
+        {
+          "path": "runs/predictions/2026-07-28T12-53-39.csv",
+          "size": 977798
+        },
+        {
+          "path": "runs/predictions/2026-08-17T18-09-43.csv",
+          "size": 1290175
+        },
+        {
+          "path": "runs/predictions/2026-08-21T06-20-00.csv",
+          "size": 1247362
+        },
+        {
+          "path": "runs/predictions/tibetan-ocr-lighton.csv",
+          "size": 2837164
+        },
+        {
+          "path": "runs/requirements.txt",
+          "size": 16
+        },
+        {
+          "path": "subset_info.json",
+          "size": 410
+        }
+      ],
+      "total_size": 245191699,
+      "note": "CC0-1.0, 472 rows. OCR evaluation only."
+    },
+    {
+      "id": "cute_bo_subset",
+      "transport": "hf",
+      "repo": "CMLI-NLP/CUTE-Datasets",
+      "type": "dataset",
+      "gated": false,
+      "dest": "data/raw/cute_v1",
+      "strip_prefix": null,
+      "files": [
+        {
+          "path": "non-parallel-corpus/n-bo.txt",
+          "size": 12563897734
+        },
+        {
+          "path": "parallel-corpus/bo.txt",
+          "size": 12047248123
+        }
+      ],
+      "total_size": 24611145857,
+      "note": "Machine-translated synthetic data: ablation only, never a gold benchmark."
+    },
+    {
+      "id": "openpecha_c0a2dd042",
+      "transport": "github_tarball",
+      "repo": "OpenPecha-Data/C0A2DD042",
+      "branch": "main",
+      "type": "repo",
+      "dest": "data/raw/openpecha_c0a2dd042",
+      "url": "https://api.github.com/repos/OpenPecha-Data/C0A2DD042/tarball/main",
+      "approx_size": 10753024,
+      "note": "CC0-1.0 claimed; the repository itself contains no LICENSE file."
+    },
+    {
+      "id": "modern_tibetan_corpus",
+      "transport": "github_tarball",
+      "repo": "tibetan-nlp/modern-tibetan-corpus",
+      "branch": "main",
+      "type": "repo",
+      "dest": "data/raw/modern_tibetan_corpus",
+      "url": "https://api.github.com/repos/tibetan-nlp/modern-tibetan-corpus/tarball/main",
+      "approx_size": 15085568,
+      "note": "MIT."
+    },
+    {
+      "id": "shajiu_publiccorpus_samples",
+      "transport": "github_tarball",
+      "repo": "Shajiu/PublicCorpus",
+      "branch": "master",
+      "type": "repo",
+      "dest": "data/raw/shajiu_publiccorpus",
+      "url": "https://api.github.com/repos/Shajiu/PublicCorpus/tarball/master",
+      "approx_size": 3944448,
+      "note": "Custom research terms; sample-only use."
+    },
+    {
+      "id": "dongbamie_code",
+      "transport": "github_tarball",
+      "repo": "thinklis/DongbaMIE",
+      "branch": "main",
+      "type": "repo",
+      "dest": "data/raw/dongbamie_code",
+      "url": "https://api.github.com/repos/thinklis/DongbaMIE/tarball/main",
+      "approx_size": 4334592,
+      "note": "Paper code and figures (not the dataset)."
+    },
+    {
+      "id": "dongba1800",
+      "transport": "figshare",
+      "article_id": 26969755,
+      "type": "dataset",
+      "dest": "data/raw/dongba1800",
+      "files": [
+        {
+          "path": "dongba1800.zip",
+          "size": 232636556,
+          "url": "https://ndownloader.figshare.com/files/49083013"
+        }
+      ],
+      "total_size": 232636556,
+      "note": "Licence text conflicts: paper says CC BY 4.0 but also states non-commercial."
+    }
+  ],
+  "target_count": 11
+}

@@ -1,6 +1,14 @@
-# Datasets — far too large for GitHub (data/owt_sample/owt_train.txt alone is 11.4 GB).
-# GitHub hard-rejects files over 100 MB, so these stay local only.
-data/
+# Datasets — far too large for GitHub (cs336/data/owt_sample/owt_train.txt alone is
+# 11.4 GB).  GitHub hard-rejects files over 100 MB, so these stay local only.
+#
+# `**/data/*` matches the *contents* of any data/ directory at any depth rather than
+# the directory itself.  That keeps the blanket protection identical to the previous
+# `data/` rule, while letting an individual project opt a small sub-path back in —
+# nlp-project tracks its dataset registry (sources, licences, commits, SHA-256)
+# under data/manifests/.  Note `data/*` would NOT work here: a slash in the middle
+# of a pattern anchors it to the repository root.
+**/data/*
+!**/data/manifests/
 
 # Retired nested-repository metadata for cs336/assignment1-basics.
 # Kept on disk as a backup of the stanford-cs336 upstream clone, never committed.
