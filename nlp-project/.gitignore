@@ -1,0 +1,75 @@
+# ---------------------------------------------------------------------------
+# Large / licensed material: NOT uploaded to GitHub.
+#
+# This project lives inside the public TheoHNO325/Courses repository.  The rules
+# below keep every downloaded dataset, every model weight and every local cache
+# out of the commit.  Run `tools/download_datasets.py` to fetch them locally.
+# ---------------------------------------------------------------------------
+
+# --- Datasets (25 GB locally: MITRA, FLORES, CUTE, DongbaMIE, Dongba1800 ...) --
+data/raw/
+data/interim/
+data/processed/
+# Manifests, the download plan and the READMEs stay tracked as documentation.
+!data/README.md
+!data/manifests/
+!data/raw/README.md
+!data/interim/README.md
+!data/processed/README.md
+
+# --- Model weights and tokenizers (NLLB-200 ~2.4 GB, HY-MT2 tokenizer 9.5 MB) --
+outputs/
+.hf-cache/
+models/
+checkpoints/
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.h5
+*.msgpack
+*.model
+*.whl
+*.tar.gz
+
+# --- Environments and caches -------------------------------------------------
+.venv/
+venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+build/
+dist/
+*.egg-info/
+
+# --- Vendored third-party source (re-fetch with tools/vendor_esprima.py) -----
+tools/_vendor/
+
+# --- Report files that embed verbatim dataset text ---------------------------
+# These contain gold sentences from licensed corpora, so they are kept local:
+#   flores200_manual_check_20.csv      20 FLORES-200 sentence pairs (GATED dataset)
+#   nllb_cpu_smoke.json                10 FLORES-200 sentence pairs
+#   mitra_v2_quality_sample_200.jsonl  200 MITRA Parallel records
+# Statistical summaries and interpretations remain tracked.
+reports/flores200_manual_check_20.csv
+reports/nllb_cpu_smoke.json
+reports/mitra_v2_quality_sample_200.jsonl
+
+# --- Local secrets and environment files ------------------------------------
+.env
+*.token
+*_credentials.json
+
+# --- OS / editor ------------------------------------------------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,18 @@
+{
+  "model_id": "facebook/nllb-200-distilled-600M",
+  "tokenizer": {
+    "source_language": "bod_Tibt",
+    "target_language_flores": "zho_Hans",
+    "target_language_mitra": "zho_Hant",
+    "input_text": "tibetan_unicode",
+    "linguistic_word_segmentation": false,
+    "preserve_tsheg_and_punctuation": true
+  },
+  "sequence_policy": {
+    "nllb_model_trained_input_limit": 512,
+    "tokenizer_model_max_length": 1024,
+    "initial_unit": "sentence_or_short_segment",
+    "long_input_policy": "measure_first_then_split; do_not_silently_truncate"
+  },
+  "license_note": "The NLLB checkpoint is CC-BY-NC-4.0; use is limited to non-commercial research/course work unless separately reviewed."
+}

@@ -1,0 +1,68 @@
+{
+  "raw_records": 836559,
+  "accepted_records": 451135,
+  "accepted_fraction": 0.5392745759713302,
+  "independent_rejection_reason_counts": {
+    "converted_source_has_no_tibetan_letter": 2173,
+    "ewts_conversion_warning": 366,
+    "length_ratio_outside_bounds": 9088,
+    "not_one_to_one": 364907,
+    "source_length_outside_bounds": 8966,
+    "target_has_ascii_digit": 1500,
+    "target_has_no_cjk": 38,
+    "target_length_outside_bounds": 5889
+  },
+  "exclusive_first_failure_counts": {
+    "converted_source_has_no_tibetan_letter": 9,
+    "ewts_conversion_warning": 326,
+    "length_ratio_outside_bounds": 4598,
+    "not_one_to_one": 364907,
+    "source_length_outside_bounds": 8966,
+    "target_has_ascii_digit": 1158,
+    "target_has_no_cjk": 5,
+    "target_length_outside_bounds": 5455
+  },
+  "accepted_documents": 676,
+  "accepted_score_quantiles": {
+    "p0": 0.284,
+    "p20": 0.509,
+    "p40": 0.577,
+    "p50": 0.614,
+    "p60": 0.658,
+    "p80": 0.791,
+    "p95": 0.899,
+    "p100": 1.068
+  },
+  "split": {
+    "train": {
+      "path": "D:\\Courses\\nlp-project\\data\\processed\\mitra_v2_conservative\\train.jsonl.gz",
+      "records": 427916,
+      "documents": 638,
+      "sha256": "D353875914F7239E7431AB380454E8F2C96C2C9A986A133194A8CC233B7E7FDC"
+    },
+    "validation": {
+      "path": "D:\\Courses\\nlp-project\\data\\processed\\mitra_v2_conservative\\validation.jsonl.gz",
+      "records": 23219,
+      "documents": 38,
+      "sha256": "014422A7206DA546CF33750EBA43840EF676EEF894AB9038C69F7CBA857E4D76"
+    }
+  },
+  "config": {
+    "source_commit": "bf7b340cd4f75bda3089479a6367ad94a8cbee10",
+    "input_sha256": "9179AD2F491A77FCEB06A52FDD93E1D2AECE3AD8623EF0BAA18A08E6373DF897",
+    "require_one_to_one": true,
+    "min_source_wylie_chars": 6,
+    "max_source_wylie_chars": 285,
+    "min_target_chinese_chars": 3,
+    "max_target_chinese_chars": 86,
+    "min_target_to_source_char_ratio": 0.03,
+    "max_target_to_source_char_ratio": 3.81,
+    "require_cjk": true,
+    "exclude_ascii_digits": true,
+    "reject_ewts_warnings": true,
+    "require_tibetan_letter_after_conversion": true,
+    "validation_fraction": 0.05,
+    "split_seed": "mitra-v2-document-split-v1"
+  },
+  "limitation": "Structural filtering only; semantic alignment and translation fidelity were not human-verified."
+}

@@ -1,0 +1,2217 @@
+{
+  "created_at_utc": "2026-09-22T10:39:57.447410+00:00",
+  "seed": 336,
+  "train_sample_size": 10000,
+  "datasets": {
+    "flores_dev": {
+      "pairs": 997,
+      "models": {
+        "nllb": {
+          "source": {
+            "length_tokens": {
+              "count": 997,
+              "min": 9,
+              "mean": 41.8104,
+              "median": 39,
+              "p90": 63.0,
+              "p95": 70.0,
+              "p99": 88.0,
+              "max": 116
+            },
+            "unicode_codepoints": {
+              "count": 997,
+              "min": 26,
+              "mean": 141.6981,
+              "median": 135,
+              "p90": 208.0,
+              "p95": 230.0,
+              "p99": 280.0,
+              "max": 355
+            },
+            "fertility_tokens_per_codepoint": {
+              "count": 997,
+              "mean": 0.295848,
+              "median": 0.288991,
+              "p95": 0.373333
+            },
+            "tibetan_syllables": {
+              "count": 997,
+              "min": 8,
+              "mean": 35.2287,
+              "median": 34,
+              "p90": 52.0,
+              "p95": 57.0,
+              "p99": 70.0,
+              "max": 85
+            },
+            "fertility_tokens_per_tibetan_syllable": {
+              "count": 997,
+              "mean": 1.195535,
+              "median": 1.15625,
+              "p95": 1.56
+            },
+            "unknown_token_total": 127,
+            "examples_with_unknown_token": 75,
+            "unknown_rate_over_tokens": 0.00304666,
+            "over_256_tokens": 0,
+            "over_512_tokens": 0
+          },
+          "target": {
+            "length_tokens": {
+              "count": 997,
+              "min": 6,
+              "mean": 32.7783,
+              "median": 31,
+              "p90": 49.0,
+              "p95": 55.0,
+              "p99": 74.0,
+              "max": 89
+            },
+            "unicode_codepoints": {
+              "count": 997,
+              "min": 7,
+              "mean": 42.3059,
+              "median": 39,
+              "p90": 66.0,
+              "p95": 76.0,
+              "p99": 104.0,
+              "max": 139
+            },
+            "fertility_tokens_per_codepoint": {
+              "count": 997,
+              "mean": 0.789162,
+              "median": 0.793103,
+              "p95": 0.923077
+            },
+            "tibetan_syllables": {
+              "count": 997,
+              "min": 0,
+              "mean": 0,
+              "median": 0,
+              "p90": 0.0,
+              "p95": 0.0,
+              "p99": 0.0,
+              "max": 0
+            },
+            "fertility_tokens_per_tibetan_syllable": {
+              "count": 0,
+              "mean": 0.0,
+              "median": 0.0,
+              "p95": 0.0
+            },
+            "unknown_token_total": 569,
+            "examples_with_unknown_token": 314,
+            "unknown_rate_over_tokens": 0.01741126,
+            "over_256_tokens": 0,
+            "over_512_tokens": 0
+          }
+        },
+        "hy_mt2": {
+          "source": {
+            "length_tokens": {
+              "count": 997,
+              "min": 28,
+              "mean": 150.0502,
+              "median": 145,
+              "p90": 221.0,
+              "p95": 246.0,
+              "p99": 297.0,
+              "max": 382
+            },
+            "unicode_codepoints": {
+              "count": 997,
+              "min": 26,
+              "mean": 141.6981,
+              "median": 135,
+              "p90": 208.0,
+              "p95": 230.0,
+              "p99": 280.0,
+              "max": 355
+            },
+            "fertility_tokens_per_codepoint": {
+              "count": 997,
+              "mean": 1.058819,
+              "median": 1.060345,
+              "p95": 1.113043
+            },
+            "tibetan_syllables": {
+              "count": 997,
+              "min": 8,
+              "mean": 35.2287,
+              "median": 34,
+              "p90": 52.0,
+              "p95": 57.0,
+              "p99": 70.0,
+              "max": 85
+            },
+            "fertility_tokens_per_tibetan_syllable": {
+              "count": 997,
+              "mean": 4.264392,
+              "median": 4.25,
+              "p95": 4.757576
+            },
+            "unknown_token_total": 0,
+            "examples_with_unknown_token": 0,
+            "unknown_rate_over_tokens": 0.0,
+            "over_256_tokens": 36,
+            "over_512_tokens": 0
+          },
+          "target": {
+            "length_tokens": {
+              "count": 997,
+              "min": 4,
+              "mean": 24.2518,
+              "median": 22,
+              "p90": 38.0,
+              "p95": 44.0,
+              "p99": 58.0,
+              "max": 74
+            },
+            "unicode_codepoints": {
+              "count": 997,
+              "min": 7,
+              "mean": 42.3059,
+              "median": 39,
+              "p90": 66.0,
+              "p95": 76.0,
+              "p99": 104.0,
+              "max": 139
+            },
+            "fertility_tokens_per_codepoint": {
+              "count": 997,
+              "mean": 0.575473,
+              "median": 0.571429,
+              "p95": 0.714286
+            },
+            "tibetan_syllables": {
+              "count": 997,
+              "min": 0,
+              "mean": 0,
+              "median": 0,
+              "p90": 0.0,
+              "p95": 0.0,
+              "p99": 0.0,
+              "max": 0
+            },
+            "fertility_tokens_per_tibetan_syllable": {
+              "count": 0,
+              "mean": 0.0,
+              "median": 0.0,
+              "p95": 0.0
+            },
+            "unknown_token_total": 0,
+            "examples_with_unknown_token": 0,
+            "unknown_rate_over_tokens": 0.0,
+            "over_256_tokens": 0,
+            "over_512_tokens": 0
+          }
+        },
+        "cs336": {
+          "raw": {
+            "8192": {
+              "source": {
+                "length_tokens": {
+                  "count": 997,
+                  "min": 19,
+                  "mean": 108.7703,
+                  "median": 104,
+                  "p90": 159.0,
+                  "p95": 178.0,
+                  "p99": 216.0,
+                  "max": 273
+                },
+                "unicode_codepoints": {
+                  "count": 997,
+                  "min": 26,
+                  "mean": 141.6981,
+                  "median": 135,
+                  "p90": 208.0,
+                  "p95": 230.0,
+                  "p99": 280.0,
+                  "max": 355
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 997,
+                  "mean": 0.768424,
+                  "median": 0.770186,
+                  "p95": 0.824468
+                },
+                "tibetan_syllables": {
+                  "count": 997,
+                  "min": 8,
+                  "mean": 35.2287,
+                  "median": 34,
+                  "p90": 52.0,
+                  "p95": 57.0,
+                  "p99": 70.0,
+                  "max": 85
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 997,
+                  "mean": 3.09881,
+                  "median": 3.06383,
+                  "p95": 3.56
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 1,
+                "over_512_tokens": 0
+              }
+            },
+            "16384": {
+              "source": {
+                "length_tokens": {
+                  "count": 997,
+                  "min": 19,
+                  "mean": 108.7703,
+                  "median": 104,
+                  "p90": 159.0,
+                  "p95": 178.0,
+                  "p99": 216.0,
+                  "max": 273
+                },
+                "unicode_codepoints": {
+                  "count": 997,
+                  "min": 26,
+                  "mean": 141.6981,
+                  "median": 135,
+                  "p90": 208.0,
+                  "p95": 230.0,
+                  "p99": 280.0,
+                  "max": 355
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 997,
+                  "mean": 0.768424,
+                  "median": 0.770186,
+                  "p95": 0.824468
+                },
+                "tibetan_syllables": {
+                  "count": 997,
+                  "min": 8,
+                  "mean": 35.2287,
+                  "median": 34,
+                  "p90": 52.0,
+                  "p95": 57.0,
+                  "p99": 70.0,
+                  "max": 85
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 997,
+                  "mean": 3.09881,
+                  "median": 3.06383,
+                  "p95": 3.56
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 1,
+                "over_512_tokens": 0
+              }
+            }
+          },
+          "syllable_aware": {
+            "8192": {
+              "source": {
+                "length_tokens": {
+                  "count": 997,
+                  "min": 19,
+                  "mean": 109.4945,
+                  "median": 105,
+                  "p90": 160.0,
+                  "p95": 179.0,
+                  "p99": 218.0,
+                  "max": 275
+                },
+                "unicode_codepoints": {
+                  "count": 997,
+                  "min": 26,
+                  "mean": 141.6981,
+                  "median": 135,
+                  "p90": 208.0,
+                  "p95": 230.0,
+                  "p99": 280.0,
+                  "max": 355
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 997,
+                  "mean": 0.77352,
+                  "median": 0.774436,
+                  "p95": 0.834646
+                },
+                "tibetan_syllables": {
+                  "count": 997,
+                  "min": 8,
+                  "mean": 35.2287,
+                  "median": 34,
+                  "p90": 52.0,
+                  "p95": 57.0,
+                  "p99": 70.0,
+                  "max": 85
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 997,
+                  "mean": 3.120122,
+                  "median": 3.081633,
+                  "p95": 3.611111
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 1,
+                "over_512_tokens": 0
+              }
+            },
+            "16384": {
+              "source": {
+                "length_tokens": {
+                  "count": 997,
+                  "min": 19,
+                  "mean": 109.4945,
+                  "median": 105,
+                  "p90": 160.0,
+                  "p95": 179.0,
+                  "p99": 218.0,
+                  "max": 275
+                },
+                "unicode_codepoints": {
+                  "count": 997,
+                  "min": 26,
+                  "mean": 141.6981,
+                  "median": 135,
+                  "p90": 208.0,
+                  "p95": 230.0,
+                  "p99": 280.0,
+                  "max": 355
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 997,
+                  "mean": 0.77352,
+                  "median": 0.774436,
+                  "p95": 0.834646
+                },
+                "tibetan_syllables": {
+                  "count": 997,
+                  "min": 8,
+                  "mean": 35.2287,
+                  "median": 34,
+                  "p90": 52.0,
+                  "p95": 57.0,
+                  "p99": 70.0,
+                  "max": 85
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 997,
+                  "mean": 3.120122,
+                  "median": 3.081633,
+                  "p95": 3.611111
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 1,
+                "over_512_tokens": 0
+              }
+            }
+          },
+          "mark_aware": {
+            "8192": {
+              "source": {
+                "length_tokens": {
+                  "count": 997,
+                  "min": 15,
+                  "mean": 78.6499,
+                  "median": 75,
+                  "p90": 116.0,
+                  "p95": 130.0,
+                  "p99": 157.0,
+                  "max": 198
+                },
+                "unicode_codepoints": {
+                  "count": 997,
+                  "min": 26,
+                  "mean": 141.6981,
+                  "median": 135,
+                  "p90": 208.0,
+                  "p95": 230.0,
+                  "p99": 280.0,
+                  "max": 355
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 997,
+                  "mean": 0.555508,
+                  "median": 0.552632,
+                  "p95": 0.622807
+                },
+                "tibetan_syllables": {
+                  "count": 997,
+                  "min": 8,
+                  "mean": 35.2287,
+                  "median": 34,
+                  "p90": 52.0,
+                  "p95": 57.0,
+                  "p99": 70.0,
+                  "max": 85
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 997,
+                  "mean": 2.238502,
+                  "median": 2.184211,
+                  "p95": 2.642857
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 0,
+                "over_512_tokens": 0
+              }
+            },
+            "16384": {
+              "source": {
+                "length_tokens": {
+                  "count": 997,
+                  "min": 15,
+                  "mean": 78.6499,
+                  "median": 75,
+                  "p90": 116.0,
+                  "p95": 130.0,
+                  "p99": 157.0,
+                  "max": 198
+                },
+                "unicode_codepoints": {
+                  "count": 997,
+                  "min": 26,
+                  "mean": 141.6981,
+                  "median": 135,
+                  "p90": 208.0,
+                  "p95": 230.0,
+                  "p99": 280.0,
+                  "max": 355
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 997,
+                  "mean": 0.555508,
+                  "median": 0.552632,
+                  "p95": 0.622807
+                },
+                "tibetan_syllables": {
+                  "count": 997,
+                  "min": 8,
+                  "mean": 35.2287,
+                  "median": 34,
+                  "p90": 52.0,
+                  "p95": 57.0,
+                  "p99": 70.0,
+                  "max": 85
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 997,
+                  "mean": 2.238502,
+                  "median": 2.184211,
+                  "p95": 2.642857
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 0,
+                "over_512_tokens": 0
+              }
+            }
+          }
+        }
+      },
+      "normalization_source_nllb": {
+        "NFC": {
+          "changed_examples": 5,
+          "token_length": {
+            "count": 997,
+            "min": 9,
+            "mean": 41.8104,
+            "median": 39,
+            "p90": 63.0,
+            "p95": 70.0,
+            "p99": 88.0,
+            "max": 116
+          }
+        },
+        "NFD": {
+          "changed_examples": 6,
+          "token_length": {
+            "count": 997,
+            "min": 9,
+            "mean": 41.8104,
+            "median": 39,
+            "p90": 63.0,
+            "p95": 70.0,
+            "p99": 88.0,
+            "max": 116
+          }
+        }
+      }
+    },
+    "flores_devtest": {
+      "pairs": 1012,
+      "models": {
+        "nllb": {
+          "source": {
+            "length_tokens": {
+              "count": 1012,
+              "min": 14,
+              "mean": 43.2668,
+              "median": 41.0,
+              "p90": 63.0,
+              "p95": 70.0,
+              "p99": 88.0,
+              "max": 129
+            },
+            "unicode_codepoints": {
+              "count": 1012,
+              "min": 42,
+              "mean": 146.3943,
+              "median": 141.0,
+              "p90": 215.0,
+              "p95": 236.0,
+              "p99": 300.0,
+              "max": 431
+            },
+            "fertility_tokens_per_codepoint": {
+              "count": 1012,
+              "mean": 0.298236,
+              "median": 0.291971,
+              "p95": 0.376238
+            },
+            "tibetan_syllables": {
+              "count": 1012,
+              "min": 11,
+              "mean": 36.4457,
+              "median": 35.0,
+              "p90": 53.0,
+              "p95": 58.0,
+              "p99": 74.0,
+              "max": 110
+            },
+            "fertility_tokens_per_tibetan_syllable": {
+              "count": 1012,
+              "mean": 1.202823,
+              "median": 1.153846,
+              "p95": 1.608696
+            },
+            "unknown_token_total": 186,
+            "examples_with_unknown_token": 78,
+            "unknown_rate_over_tokens": 0.00424793,
+            "over_256_tokens": 0,
+            "over_512_tokens": 0
+          },
+          "target": {
+            "length_tokens": {
+              "count": 1012,
+              "min": 9,
+              "mean": 33.081,
+              "median": 31.0,
+              "p90": 50.0,
+              "p95": 57.0,
+              "p99": 70.0,
+              "max": 87
+            },
+            "unicode_codepoints": {
+              "count": 1012,
+              "min": 10,
+              "mean": 42.7352,
+              "median": 39.5,
+              "p90": 66.0,
+              "p95": 74.0,
+              "p99": 100.0,
+              "max": 130
+            },
+            "fertility_tokens_per_codepoint": {
+              "count": 1012,
+              "mean": 0.788353,
+              "median": 0.791667,
+              "p95": 0.933333
+            },
+            "tibetan_syllables": {
+              "count": 1012,
+              "min": 0,
+              "mean": 0,
+              "median": 0.0,
+              "p90": 0.0,
+              "p95": 0.0,
+              "p99": 0.0,
+              "max": 0
+            },
+            "fertility_tokens_per_tibetan_syllable": {
+              "count": 0,
+              "mean": 0.0,
+              "median": 0.0,
+              "p95": 0.0
+            },
+            "unknown_token_total": 669,
+            "examples_with_unknown_token": 357,
+            "unknown_rate_over_tokens": 0.01998327,
+            "over_256_tokens": 0,
+            "over_512_tokens": 0
+          }
+        },
+        "hy_mt2": {
+          "source": {
+            "length_tokens": {
+              "count": 1012,
+              "min": 42,
+              "mean": 154.6581,
+              "median": 150.0,
+              "p90": 224.0,
+              "p95": 251.0,
+              "p99": 317.0,
+              "max": 459
+            },
+            "unicode_codepoints": {
+              "count": 1012,
+              "min": 42,
+              "mean": 146.3943,
+              "median": 141.0,
+              "p90": 215.0,
+              "p95": 236.0,
+              "p99": 300.0,
+              "max": 431
+            },
+            "fertility_tokens_per_codepoint": {
+              "count": 1012,
+              "mean": 1.057349,
+              "median": 1.057513,
+              "p95": 1.111111
+            },
+            "tibetan_syllables": {
+              "count": 1012,
+              "min": 11,
+              "mean": 36.4457,
+              "median": 35.0,
+              "p90": 53.0,
+              "p95": 58.0,
+              "p99": 74.0,
+              "max": 110
+            },
+            "fertility_tokens_per_tibetan_syllable": {
+              "count": 1012,
+              "mean": 4.250995,
+              "median": 4.215686,
+              "p95": 4.78
+            },
+            "unknown_token_total": 0,
+            "examples_with_unknown_token": 0,
+            "unknown_rate_over_tokens": 0.0,
+            "over_256_tokens": 41,
+            "over_512_tokens": 0
+          },
+          "target": {
+            "length_tokens": {
+              "count": 1012,
+              "min": 7,
+              "mean": 24.4486,
+              "median": 22.0,
+              "p90": 38.0,
+              "p95": 44.0,
+              "p99": 57.0,
+              "max": 75
+            },
+            "unicode_codepoints": {
+              "count": 1012,
+              "min": 10,
+              "mean": 42.7352,
+              "median": 39.5,
+              "p90": 66.0,
+              "p95": 74.0,
+              "p99": 100.0,
+              "max": 130
+            },
+            "fertility_tokens_per_codepoint": {
+              "count": 1012,
+              "mean": 0.57511,
+              "median": 0.566667,
+              "p95": 0.708333
+            },
+            "tibetan_syllables": {
+              "count": 1012,
+              "min": 0,
+              "mean": 0,
+              "median": 0.0,
+              "p90": 0.0,
+              "p95": 0.0,
+              "p99": 0.0,
+              "max": 0
+            },
+            "fertility_tokens_per_tibetan_syllable": {
+              "count": 0,
+              "mean": 0.0,
+              "median": 0.0,
+              "p95": 0.0
+            },
+            "unknown_token_total": 0,
+            "examples_with_unknown_token": 0,
+            "unknown_rate_over_tokens": 0.0,
+            "over_256_tokens": 0,
+            "over_512_tokens": 0
+          }
+        },
+        "cs336": {
+          "raw": {
+            "8192": {
+              "source": {
+                "length_tokens": {
+                  "count": 1012,
+                  "min": 31,
+                  "mean": 112.3182,
+                  "median": 108.0,
+                  "p90": 163.0,
+                  "p95": 182.0,
+                  "p99": 232.0,
+                  "max": 330
+                },
+                "unicode_codepoints": {
+                  "count": 1012,
+                  "min": 42,
+                  "mean": 146.3943,
+                  "median": 141.0,
+                  "p90": 215.0,
+                  "p95": 236.0,
+                  "p99": 300.0,
+                  "max": 431
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 1012,
+                  "mean": 0.768941,
+                  "median": 0.76762,
+                  "p95": 0.835165
+                },
+                "tibetan_syllables": {
+                  "count": 1012,
+                  "min": 11,
+                  "mean": 36.4457,
+                  "median": 35.0,
+                  "p90": 53.0,
+                  "p95": 58.0,
+                  "p99": 74.0,
+                  "max": 110
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 1012,
+                  "mean": 3.094783,
+                  "median": 3.052632,
+                  "p95": 3.62963
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 5,
+                "over_512_tokens": 0
+              }
+            },
+            "16384": {
+              "source": {
+                "length_tokens": {
+                  "count": 1012,
+                  "min": 31,
+                  "mean": 112.3182,
+                  "median": 108.0,
+                  "p90": 163.0,
+                  "p95": 182.0,
+                  "p99": 232.0,
+                  "max": 330
+                },
+                "unicode_codepoints": {
+                  "count": 1012,
+                  "min": 42,
+                  "mean": 146.3943,
+                  "median": 141.0,
+                  "p90": 215.0,
+                  "p95": 236.0,
+                  "p99": 300.0,
+                  "max": 431
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 1012,
+                  "mean": 0.768941,
+                  "median": 0.76762,
+                  "p95": 0.835165
+                },
+                "tibetan_syllables": {
+                  "count": 1012,
+                  "min": 11,
+                  "mean": 36.4457,
+                  "median": 35.0,
+                  "p90": 53.0,
+                  "p95": 58.0,
+                  "p99": 74.0,
+                  "max": 110
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 1012,
+                  "mean": 3.094783,
+                  "median": 3.052632,
+                  "p95": 3.62963
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 5,
+                "over_512_tokens": 0
+              }
+            }
+          },
+          "syllable_aware": {
+            "8192": {
+              "source": {
+                "length_tokens": {
+                  "count": 1012,
+                  "min": 32,
+                  "mean": 113.0395,
+                  "median": 108.0,
+                  "p90": 163.0,
+                  "p95": 184.0,
+                  "p99": 234.0,
+                  "max": 331
+                },
+                "unicode_codepoints": {
+                  "count": 1012,
+                  "min": 42,
+                  "mean": 146.3943,
+                  "median": 141.0,
+                  "p90": 215.0,
+                  "p95": 236.0,
+                  "p99": 300.0,
+                  "max": 431
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 1012,
+                  "mean": 0.774027,
+                  "median": 0.771186,
+                  "p95": 0.843931
+                },
+                "tibetan_syllables": {
+                  "count": 1012,
+                  "min": 11,
+                  "mean": 36.4457,
+                  "median": 35.0,
+                  "p90": 53.0,
+                  "p95": 58.0,
+                  "p99": 74.0,
+                  "max": 110
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 1012,
+                  "mean": 3.116042,
+                  "median": 3.074074,
+                  "p95": 3.685714
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 5,
+                "over_512_tokens": 0
+              }
+            },
+            "16384": {
+              "source": {
+                "length_tokens": {
+                  "count": 1012,
+                  "min": 32,
+                  "mean": 113.0395,
+                  "median": 108.0,
+                  "p90": 163.0,
+                  "p95": 184.0,
+                  "p99": 234.0,
+                  "max": 331
+                },
+                "unicode_codepoints": {
+                  "count": 1012,
+                  "min": 42,
+                  "mean": 146.3943,
+                  "median": 141.0,
+                  "p90": 215.0,
+                  "p95": 236.0,
+                  "p99": 300.0,
+                  "max": 431
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 1012,
+                  "mean": 0.774027,
+                  "median": 0.771186,
+                  "p95": 0.843931
+                },
+                "tibetan_syllables": {
+                  "count": 1012,
+                  "min": 11,
+                  "mean": 36.4457,
+                  "median": 35.0,
+                  "p90": 53.0,
+                  "p95": 58.0,
+                  "p99": 74.0,
+                  "max": 110
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 1012,
+                  "mean": 3.116042,
+                  "median": 3.074074,
+                  "p95": 3.685714
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 5,
+                "over_512_tokens": 0
+              }
+            }
+          },
+          "mark_aware": {
+            "8192": {
+              "source": {
+                "length_tokens": {
+                  "count": 1012,
+                  "min": 26,
+                  "mean": 81.2727,
+                  "median": 78.0,
+                  "p90": 117.0,
+                  "p95": 131.0,
+                  "p99": 169.0,
+                  "max": 250
+                },
+                "unicode_codepoints": {
+                  "count": 1012,
+                  "min": 42,
+                  "mean": 146.3943,
+                  "median": 141.0,
+                  "p90": 215.0,
+                  "p95": 236.0,
+                  "p99": 300.0,
+                  "max": 431
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 1012,
+                  "mean": 0.557485,
+                  "median": 0.552193,
+                  "p95": 0.630952
+                },
+                "tibetan_syllables": {
+                  "count": 1012,
+                  "min": 11,
+                  "mean": 36.4457,
+                  "median": 35.0,
+                  "p90": 53.0,
+                  "p95": 58.0,
+                  "p99": 74.0,
+                  "max": 110
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 1012,
+                  "mean": 2.241789,
+                  "median": 2.173163,
+                  "p95": 2.684211
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 0,
+                "over_512_tokens": 0
+              }
+            },
+            "16384": {
+              "source": {
+                "length_tokens": {
+                  "count": 1012,
+                  "min": 26,
+                  "mean": 81.2727,
+                  "median": 78.0,
+                  "p90": 117.0,
+                  "p95": 131.0,
+                  "p99": 169.0,
+                  "max": 250
+                },
+                "unicode_codepoints": {
+                  "count": 1012,
+                  "min": 42,
+                  "mean": 146.3943,
+                  "median": 141.0,
+                  "p90": 215.0,
+                  "p95": 236.0,
+                  "p99": 300.0,
+                  "max": 431
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 1012,
+                  "mean": 0.557485,
+                  "median": 0.552193,
+                  "p95": 0.630952
+                },
+                "tibetan_syllables": {
+                  "count": 1012,
+                  "min": 11,
+                  "mean": 36.4457,
+                  "median": 35.0,
+                  "p90": 53.0,
+                  "p95": 58.0,
+                  "p99": 74.0,
+                  "max": 110
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 1012,
+                  "mean": 2.241789,
+                  "median": 2.173163,
+                  "p95": 2.684211
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 0,
+                "over_512_tokens": 0
+              }
+            }
+          }
+        }
+      },
+      "normalization_source_nllb": {
+        "NFC": {
+          "changed_examples": 5,
+          "token_length": {
+            "count": 1012,
+            "min": 14,
+            "mean": 43.2678,
+            "median": 41.0,
+            "p90": 63.0,
+            "p95": 70.0,
+            "p99": 88.0,
+            "max": 129
+          }
+        },
+        "NFD": {
+          "changed_examples": 5,
+          "token_length": {
+            "count": 1012,
+            "min": 14,
+            "mean": 43.2678,
+            "median": 41.0,
+            "p90": 63.0,
+            "p95": 70.0,
+            "p99": 88.0,
+            "max": 129
+          }
+        }
+      }
+    },
+    "mitra_validation": {
+      "pairs": 23219,
+      "models": {
+        "nllb": {
+          "source": {
+            "length_tokens": {
+              "count": 23219,
+              "min": 1,
+              "mean": 14.2079,
+              "median": 11,
+              "p90": 27.0,
+              "p95": 33.0,
+              "p99": 48.0,
+              "max": 117
+            },
+            "unicode_codepoints": {
+              "count": 23219,
+              "min": 4,
+              "mean": 49.4774,
+              "median": 36,
+              "p90": 97.0,
+              "p95": 121.0,
+              "p99": 174.0,
+              "max": 240
+            },
+            "fertility_tokens_per_codepoint": {
+              "count": 23219,
+              "mean": 0.311446,
+              "median": 0.285714,
+              "p95": 0.555556
+            },
+            "tibetan_syllables": {
+              "count": 23219,
+              "min": 1,
+              "mean": 13.0053,
+              "median": 9,
+              "p90": 26.0,
+              "p95": 32.0,
+              "p99": 47.0,
+              "max": 63
+            },
+            "fertility_tokens_per_tibetan_syllable": {
+              "count": 23219,
+              "mean": 1.200201,
+              "median": 1.1,
+              "p95": 2.0
+            },
+            "unknown_token_total": 325,
+            "examples_with_unknown_token": 242,
+            "unknown_rate_over_tokens": 0.00098516,
+            "over_256_tokens": 0,
+            "over_512_tokens": 0
+          },
+          "target": {
+            "length_tokens": {
+              "count": 23219,
+              "min": 2,
+              "mean": 17.4963,
+              "median": 14,
+              "p90": 36.0,
+              "p95": 47.0,
+              "p99": 68.0,
+              "max": 86
+            },
+            "unicode_codepoints": {
+              "count": 23219,
+              "min": 3,
+              "mean": 18.1068,
+              "median": 14,
+              "p90": 37.0,
+              "p95": 48.0,
+              "p99": 71.0,
+              "max": 86
+            },
+            "fertility_tokens_per_codepoint": {
+              "count": 23219,
+              "mean": 0.984992,
+              "median": 1.0,
+              "p95": 1.166667
+            },
+            "tibetan_syllables": {
+              "count": 23219,
+              "min": 0,
+              "mean": 0,
+              "median": 0,
+              "p90": 0.0,
+              "p95": 0.0,
+              "p99": 0.0,
+              "max": 0
+            },
+            "fertility_tokens_per_tibetan_syllable": {
+              "count": 0,
+              "mean": 0.0,
+              "median": 0.0,
+              "p95": 0.0
+            },
+            "unknown_token_total": 11073,
+            "examples_with_unknown_token": 6791,
+            "unknown_rate_over_tokens": 0.02725682,
+            "over_256_tokens": 0,
+            "over_512_tokens": 0
+          }
+        },
+        "hy_mt2": {
+          "source": {
+            "length_tokens": {
+              "count": 23219,
+              "min": 4,
+              "mean": 51.9219,
+              "median": 38,
+              "p90": 101.0,
+              "p95": 127.0,
+              "p99": 183.0,
+              "max": 253
+            },
+            "unicode_codepoints": {
+              "count": 23219,
+              "min": 4,
+              "mean": 49.4774,
+              "median": 36,
+              "p90": 97.0,
+              "p95": 121.0,
+              "p99": 174.0,
+              "max": 240
+            },
+            "fertility_tokens_per_codepoint": {
+              "count": 23219,
+              "mean": 1.054307,
+              "median": 1.044444,
+              "p95": 1.148148
+            },
+            "tibetan_syllables": {
+              "count": 23219,
+              "min": 1,
+              "mean": 13.0053,
+              "median": 9,
+              "p90": 26.0,
+              "p95": 32.0,
+              "p99": 47.0,
+              "max": 63
+            },
+            "fertility_tokens_per_tibetan_syllable": {
+              "count": 23219,
+              "mean": 4.064675,
+              "median": 4.0,
+              "p95": 4.857143
+            },
+            "unknown_token_total": 0,
+            "examples_with_unknown_token": 0,
+            "unknown_rate_over_tokens": 0.0,
+            "over_256_tokens": 0,
+            "over_512_tokens": 0
+          },
+          "target": {
+            "length_tokens": {
+              "count": 23219,
+              "min": 2,
+              "mean": 18.7006,
+              "median": 15,
+              "p90": 38.0,
+              "p95": 51.0,
+              "p99": 76.0,
+              "max": 105
+            },
+            "unicode_codepoints": {
+              "count": 23219,
+              "min": 3,
+              "mean": 18.1068,
+              "median": 14,
+              "p90": 37.0,
+              "p95": 48.0,
+              "p99": 71.0,
+              "max": 86
+            },
+            "fertility_tokens_per_codepoint": {
+              "count": 23219,
+              "mean": 1.036321,
+              "median": 1.0,
+              "p95": 1.307692
+            },
+            "tibetan_syllables": {
+              "count": 23219,
+              "min": 0,
+              "mean": 0,
+              "median": 0,
+              "p90": 0.0,
+              "p95": 0.0,
+              "p99": 0.0,
+              "max": 0
+            },
+            "fertility_tokens_per_tibetan_syllable": {
+              "count": 0,
+              "mean": 0.0,
+              "median": 0.0,
+              "p95": 0.0
+            },
+            "unknown_token_total": 0,
+            "examples_with_unknown_token": 0,
+            "unknown_rate_over_tokens": 0.0,
+            "over_256_tokens": 0,
+            "over_512_tokens": 0
+          }
+        },
+        "cs336": {
+          "raw": {
+            "8192": {
+              "source": {
+                "length_tokens": {
+                  "count": 23219,
+                  "min": 3,
+                  "mean": 36.3877,
+                  "median": 27,
+                  "p90": 71.0,
+                  "p95": 90.0,
+                  "p99": 130.0,
+                  "max": 176
+                },
+                "unicode_codepoints": {
+                  "count": 23219,
+                  "min": 4,
+                  "mean": 49.4774,
+                  "median": 36,
+                  "p90": 97.0,
+                  "p95": 121.0,
+                  "p99": 174.0,
+                  "max": 240
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 23219,
+                  "mean": 0.73381,
+                  "median": 0.736111,
+                  "p95": 0.846154
+                },
+                "tibetan_syllables": {
+                  "count": 23219,
+                  "min": 1,
+                  "mean": 13.0053,
+                  "median": 9,
+                  "p90": 26.0,
+                  "p95": 32.0,
+                  "p99": 47.0,
+                  "max": 63
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 23219,
+                  "mean": 2.825136,
+                  "median": 2.804878,
+                  "p95": 3.333333
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 0,
+                "over_512_tokens": 0
+              }
+            },
+            "16384": {
+              "source": {
+                "length_tokens": {
+                  "count": 23219,
+                  "min": 3,
+                  "mean": 36.3877,
+                  "median": 27,
+                  "p90": 71.0,
+                  "p95": 90.0,
+                  "p99": 130.0,
+                  "max": 176
+                },
+                "unicode_codepoints": {
+                  "count": 23219,
+                  "min": 4,
+                  "mean": 49.4774,
+                  "median": 36,
+                  "p90": 97.0,
+                  "p95": 121.0,
+                  "p99": 174.0,
+                  "max": 240
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 23219,
+                  "mean": 0.73381,
+                  "median": 0.736111,
+                  "p95": 0.846154
+                },
+                "tibetan_syllables": {
+                  "count": 23219,
+                  "min": 1,
+                  "mean": 13.0053,
+                  "median": 9,
+                  "p90": 26.0,
+                  "p95": 32.0,
+                  "p99": 47.0,
+                  "max": 63
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 23219,
+                  "mean": 2.825136,
+                  "median": 2.804878,
+                  "p95": 3.333333
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 0,
+                "over_512_tokens": 0
+              }
+            }
+          },
+          "syllable_aware": {
+            "8192": {
+              "source": {
+                "length_tokens": {
+                  "count": 23219,
+                  "min": 3,
+                  "mean": 36.5847,
+                  "median": 27,
+                  "p90": 72.0,
+                  "p95": 90.0,
+                  "p99": 131.0,
+                  "max": 176
+                },
+                "unicode_codepoints": {
+                  "count": 23219,
+                  "min": 4,
+                  "mean": 49.4774,
+                  "median": 36,
+                  "p90": 97.0,
+                  "p95": 121.0,
+                  "p99": 174.0,
+                  "max": 240
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 23219,
+                  "mean": 0.737441,
+                  "median": 0.74,
+                  "p95": 0.851064
+                },
+                "tibetan_syllables": {
+                  "count": 23219,
+                  "min": 1,
+                  "mean": 13.0053,
+                  "median": 9,
+                  "p90": 26.0,
+                  "p95": 32.0,
+                  "p99": 47.0,
+                  "max": 63
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 23219,
+                  "mean": 2.839751,
+                  "median": 2.828571,
+                  "p95": 3.428571
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 0,
+                "over_512_tokens": 0
+              }
+            },
+            "16384": {
+              "source": {
+                "length_tokens": {
+                  "count": 23219,
+                  "min": 3,
+                  "mean": 36.5847,
+                  "median": 27,
+                  "p90": 72.0,
+                  "p95": 90.0,
+                  "p99": 131.0,
+                  "max": 176
+                },
+                "unicode_codepoints": {
+                  "count": 23219,
+                  "min": 4,
+                  "mean": 49.4774,
+                  "median": 36,
+                  "p90": 97.0,
+                  "p95": 121.0,
+                  "p99": 174.0,
+                  "max": 240
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 23219,
+                  "mean": 0.737441,
+                  "median": 0.74,
+                  "p95": 0.851064
+                },
+                "tibetan_syllables": {
+                  "count": 23219,
+                  "min": 1,
+                  "mean": 13.0053,
+                  "median": 9,
+                  "p90": 26.0,
+                  "p95": 32.0,
+                  "p99": 47.0,
+                  "max": 63
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 23219,
+                  "mean": 2.839751,
+                  "median": 2.828571,
+                  "p95": 3.428571
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 0,
+                "over_512_tokens": 0
+              }
+            }
+          },
+          "mark_aware": {
+            "8192": {
+              "source": {
+                "length_tokens": {
+                  "count": 23219,
+                  "min": 1,
+                  "mean": 26.6613,
+                  "median": 19,
+                  "p90": 52.0,
+                  "p95": 65.0,
+                  "p99": 94.0,
+                  "max": 126
+                },
+                "unicode_codepoints": {
+                  "count": 23219,
+                  "min": 4,
+                  "mean": 49.4774,
+                  "median": 36,
+                  "p90": 97.0,
+                  "p95": 121.0,
+                  "p99": 174.0,
+                  "max": 240
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 23219,
+                  "mean": 0.541826,
+                  "median": 0.537037,
+                  "p95": 0.634146
+                },
+                "tibetan_syllables": {
+                  "count": 23219,
+                  "min": 1,
+                  "mean": 13.0053,
+                  "median": 9,
+                  "p90": 26.0,
+                  "p95": 32.0,
+                  "p99": 47.0,
+                  "max": 63
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 23219,
+                  "mean": 2.072681,
+                  "median": 2.05,
+                  "p95": 2.2
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 0,
+                "over_512_tokens": 0
+              }
+            },
+            "16384": {
+              "source": {
+                "length_tokens": {
+                  "count": 23219,
+                  "min": 1,
+                  "mean": 26.6613,
+                  "median": 19,
+                  "p90": 52.0,
+                  "p95": 65.0,
+                  "p99": 94.0,
+                  "max": 126
+                },
+                "unicode_codepoints": {
+                  "count": 23219,
+                  "min": 4,
+                  "mean": 49.4774,
+                  "median": 36,
+                  "p90": 97.0,
+                  "p95": 121.0,
+                  "p99": 174.0,
+                  "max": 240
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 23219,
+                  "mean": 0.541826,
+                  "median": 0.537037,
+                  "p95": 0.634146
+                },
+                "tibetan_syllables": {
+                  "count": 23219,
+                  "min": 1,
+                  "mean": 13.0053,
+                  "median": 9,
+                  "p90": 26.0,
+                  "p95": 32.0,
+                  "p99": 47.0,
+                  "max": 63
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 23219,
+                  "mean": 2.072681,
+                  "median": 2.05,
+                  "p95": 2.2
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 0,
+                "over_512_tokens": 0
+              }
+            }
+          }
+        }
+      },
+      "normalization_source_nllb": {
+        "NFC": {
+          "changed_examples": 0,
+          "token_length": {
+            "count": 23219,
+            "min": 1,
+            "mean": 14.2079,
+            "median": 11,
+            "p90": 27.0,
+            "p95": 33.0,
+            "p99": 48.0,
+            "max": 117
+          }
+        },
+        "NFD": {
+          "changed_examples": 0,
+          "token_length": {
+            "count": 23219,
+            "min": 1,
+            "mean": 14.2079,
+            "median": 11,
+            "p90": 27.0,
+            "p95": 33.0,
+            "p99": 48.0,
+            "max": 117
+          }
+        }
+      }
+    },
+    "mitra_train_sample": {
+      "pairs": 10000,
+      "models": {
+        "nllb": {
+          "source": {
+            "length_tokens": {
+              "count": 10000,
+              "min": 1,
+              "mean": 14.1618,
+              "median": 11.0,
+              "p90": 27.0,
+              "p95": 33.0,
+              "p99": 50.0,
+              "max": 120
+            },
+            "unicode_codepoints": {
+              "count": 10000,
+              "min": 4,
+              "mean": 49.3671,
+              "median": 36.0,
+              "p90": 96.0,
+              "p95": 124.0,
+              "p99": 188.0,
+              "max": 238
+            },
+            "fertility_tokens_per_codepoint": {
+              "count": 10000,
+              "mean": 0.30556,
+              "median": 0.289474,
+              "p95": 0.428571
+            },
+            "tibetan_syllables": {
+              "count": 10000,
+              "min": 1,
+              "mean": 12.9067,
+              "median": 9.0,
+              "p90": 26.0,
+              "p95": 33.0,
+              "p99": 49.0,
+              "max": 65
+            },
+            "fertility_tokens_per_tibetan_syllable": {
+              "count": 10000,
+              "mean": 1.174617,
+              "median": 1.125,
+              "p95": 1.666667
+            },
+            "unknown_token_total": 106,
+            "examples_with_unknown_token": 87,
+            "unknown_rate_over_tokens": 0.00074849,
+            "over_256_tokens": 0,
+            "over_512_tokens": 0
+          },
+          "target": {
+            "length_tokens": {
+              "count": 10000,
+              "min": 2,
+              "mean": 17.8868,
+              "median": 14.0,
+              "p90": 35.0,
+              "p95": 45.0,
+              "p99": 67.0,
+              "max": 86
+            },
+            "unicode_codepoints": {
+              "count": 10000,
+              "min": 3,
+              "mean": 18.5141,
+              "median": 14.0,
+              "p90": 36.0,
+              "p95": 46.0,
+              "p99": 69.0,
+              "max": 86
+            },
+            "fertility_tokens_per_codepoint": {
+              "count": 10000,
+              "mean": 0.977786,
+              "median": 1.0,
+              "p95": 1.142857
+            },
+            "tibetan_syllables": {
+              "count": 10000,
+              "min": 0,
+              "mean": 0,
+              "median": 0.0,
+              "p90": 0.0,
+              "p95": 0.0,
+              "p99": 0.0,
+              "max": 0
+            },
+            "fertility_tokens_per_tibetan_syllable": {
+              "count": 0,
+              "mean": 0.0,
+              "median": 0.0,
+              "p95": 0.0
+            },
+            "unknown_token_total": 5162,
+            "examples_with_unknown_token": 3193,
+            "unknown_rate_over_tokens": 0.02885927,
+            "over_256_tokens": 0,
+            "over_512_tokens": 0
+          }
+        },
+        "hy_mt2": {
+          "source": {
+            "length_tokens": {
+              "count": 10000,
+              "min": 4,
+              "mean": 51.7649,
+              "median": 38.0,
+              "p90": 101.0,
+              "p95": 130.0,
+              "p99": 196.0,
+              "max": 269
+            },
+            "unicode_codepoints": {
+              "count": 10000,
+              "min": 4,
+              "mean": 49.3671,
+              "median": 36.0,
+              "p90": 96.0,
+              "p95": 124.0,
+              "p99": 188.0,
+              "max": 238
+            },
+            "fertility_tokens_per_codepoint": {
+              "count": 10000,
+              "mean": 1.054518,
+              "median": 1.047619,
+              "p95": 1.142857
+            },
+            "tibetan_syllables": {
+              "count": 10000,
+              "min": 1,
+              "mean": 12.9067,
+              "median": 9.0,
+              "p90": 26.0,
+              "p95": 33.0,
+              "p99": 49.0,
+              "max": 65
+            },
+            "fertility_tokens_per_tibetan_syllable": {
+              "count": 10000,
+              "mean": 4.067563,
+              "median": 4.0,
+              "p95": 4.777778
+            },
+            "unknown_token_total": 0,
+            "examples_with_unknown_token": 0,
+            "unknown_rate_over_tokens": 0.0,
+            "over_256_tokens": 1,
+            "over_512_tokens": 0
+          },
+          "target": {
+            "length_tokens": {
+              "count": 10000,
+              "min": 2,
+              "mean": 19.1126,
+              "median": 15.0,
+              "p90": 38.0,
+              "p95": 49.0,
+              "p99": 72.0,
+              "max": 105
+            },
+            "unicode_codepoints": {
+              "count": 10000,
+              "min": 3,
+              "mean": 18.5141,
+              "median": 14.0,
+              "p90": 36.0,
+              "p95": 46.0,
+              "p99": 69.0,
+              "max": 86
+            },
+            "fertility_tokens_per_codepoint": {
+              "count": 10000,
+              "mean": 1.02892,
+              "median": 1.0,
+              "p95": 1.272727
+            },
+            "tibetan_syllables": {
+              "count": 10000,
+              "min": 0,
+              "mean": 0,
+              "median": 0.0,
+              "p90": 0.0,
+              "p95": 0.0,
+              "p99": 0.0,
+              "max": 0
+            },
+            "fertility_tokens_per_tibetan_syllable": {
+              "count": 0,
+              "mean": 0.0,
+              "median": 0.0,
+              "p95": 0.0
+            },
+            "unknown_token_total": 0,
+            "examples_with_unknown_token": 0,
+            "unknown_rate_over_tokens": 0.0,
+            "over_256_tokens": 0,
+            "over_512_tokens": 0
+          }
+        },
+        "cs336": {
+          "raw": {
+            "8192": {
+              "source": {
+                "length_tokens": {
+                  "count": 10000,
+                  "min": 2,
+                  "mean": 36.4109,
+                  "median": 27.0,
+                  "p90": 72.0,
+                  "p95": 90.0,
+                  "p99": 138.0,
+                  "max": 184
+                },
+                "unicode_codepoints": {
+                  "count": 10000,
+                  "min": 4,
+                  "mean": 49.3671,
+                  "median": 36.0,
+                  "p90": 96.0,
+                  "p95": 124.0,
+                  "p99": 188.0,
+                  "max": 238
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 10000,
+                  "mean": 0.737647,
+                  "median": 0.738806,
+                  "p95": 0.83871
+                },
+                "tibetan_syllables": {
+                  "count": 10000,
+                  "min": 1,
+                  "mean": 12.9067,
+                  "median": 9.0,
+                  "p90": 26.0,
+                  "p95": 33.0,
+                  "p99": 49.0,
+                  "max": 65
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 10000,
+                  "mean": 2.844116,
+                  "median": 2.819091,
+                  "p95": 3.444444
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 0,
+                "over_512_tokens": 0
+              }
+            },
+            "16384": {
+              "source": {
+                "length_tokens": {
+                  "count": 10000,
+                  "min": 2,
+                  "mean": 36.4109,
+                  "median": 27.0,
+                  "p90": 72.0,
+                  "p95": 90.0,
+                  "p99": 138.0,
+                  "max": 184
+                },
+                "unicode_codepoints": {
+                  "count": 10000,
+                  "min": 4,
+                  "mean": 49.3671,
+                  "median": 36.0,
+                  "p90": 96.0,
+                  "p95": 124.0,
+                  "p99": 188.0,
+                  "max": 238
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 10000,
+                  "mean": 0.737647,
+                  "median": 0.738806,
+                  "p95": 0.83871
+                },
+                "tibetan_syllables": {
+                  "count": 10000,
+                  "min": 1,
+                  "mean": 12.9067,
+                  "median": 9.0,
+                  "p90": 26.0,
+                  "p95": 33.0,
+                  "p99": 49.0,
+                  "max": 65
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 10000,
+                  "mean": 2.844116,
+                  "median": 2.819091,
+                  "p95": 3.444444
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 0,
+                "over_512_tokens": 0
+              }
+            }
+          },
+          "syllable_aware": {
+            "8192": {
+              "source": {
+                "length_tokens": {
+                  "count": 10000,
+                  "min": 2,
+                  "mean": 36.6594,
+                  "median": 27.0,
+                  "p90": 72.0,
+                  "p95": 92.0,
+                  "p99": 140.0,
+                  "max": 184
+                },
+                "unicode_codepoints": {
+                  "count": 10000,
+                  "min": 4,
+                  "mean": 49.3671,
+                  "median": 36.0,
+                  "p90": 96.0,
+                  "p95": 124.0,
+                  "p99": 188.0,
+                  "max": 238
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 10000,
+                  "mean": 0.742073,
+                  "median": 0.742857,
+                  "p95": 0.84
+                },
+                "tibetan_syllables": {
+                  "count": 10000,
+                  "min": 1,
+                  "mean": 12.9067,
+                  "median": 9.0,
+                  "p90": 26.0,
+                  "p95": 33.0,
+                  "p99": 49.0,
+                  "max": 65
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 10000,
+                  "mean": 2.86181,
+                  "median": 2.846154,
+                  "p95": 3.444444
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 0,
+                "over_512_tokens": 0
+              }
+            },
+            "16384": {
+              "source": {
+                "length_tokens": {
+                  "count": 10000,
+                  "min": 2,
+                  "mean": 36.6594,
+                  "median": 27.0,
+                  "p90": 72.0,
+                  "p95": 92.0,
+                  "p99": 140.0,
+                  "max": 184
+                },
+                "unicode_codepoints": {
+                  "count": 10000,
+                  "min": 4,
+                  "mean": 49.3671,
+                  "median": 36.0,
+                  "p90": 96.0,
+                  "p95": 124.0,
+                  "p99": 188.0,
+                  "max": 238
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 10000,
+                  "mean": 0.742073,
+                  "median": 0.742857,
+                  "p95": 0.84
+                },
+                "tibetan_syllables": {
+                  "count": 10000,
+                  "min": 1,
+                  "mean": 12.9067,
+                  "median": 9.0,
+                  "p90": 26.0,
+                  "p95": 33.0,
+                  "p99": 49.0,
+                  "max": 65
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 10000,
+                  "mean": 2.86181,
+                  "median": 2.846154,
+                  "p95": 3.444444
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 0,
+                "over_512_tokens": 0
+              }
+            }
+          },
+          "mark_aware": {
+            "8192": {
+              "source": {
+                "length_tokens": {
+                  "count": 10000,
+                  "min": 1,
+                  "mean": 26.3488,
+                  "median": 19.0,
+                  "p90": 52.0,
+                  "p95": 66.0,
+                  "p99": 99.0,
+                  "max": 131
+                },
+                "unicode_codepoints": {
+                  "count": 10000,
+                  "min": 4,
+                  "mean": 49.3671,
+                  "median": 36.0,
+                  "p90": 96.0,
+                  "p95": 124.0,
+                  "p99": 188.0,
+                  "max": 238
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 10000,
+                  "mean": 0.537999,
+                  "median": 0.534884,
+                  "p95": 0.625
+                },
+                "tibetan_syllables": {
+                  "count": 10000,
+                  "min": 1,
+                  "mean": 12.9067,
+                  "median": 9.0,
+                  "p90": 26.0,
+                  "p95": 33.0,
+                  "p99": 49.0,
+                  "max": 65
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 10000,
+                  "mean": 2.057299,
+                  "median": 2.043478,
+                  "p95": 2.142857
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 0,
+                "over_512_tokens": 0
+              }
+            },
+            "16384": {
+              "source": {
+                "length_tokens": {
+                  "count": 10000,
+                  "min": 1,
+                  "mean": 26.3488,
+                  "median": 19.0,
+                  "p90": 52.0,
+                  "p95": 66.0,
+                  "p99": 99.0,
+                  "max": 131
+                },
+                "unicode_codepoints": {
+                  "count": 10000,
+                  "min": 4,
+                  "mean": 49.3671,
+                  "median": 36.0,
+                  "p90": 96.0,
+                  "p95": 124.0,
+                  "p99": 188.0,
+                  "max": 238
+                },
+                "fertility_tokens_per_codepoint": {
+                  "count": 10000,
+                  "mean": 0.537999,
+                  "median": 0.534884,
+                  "p95": 0.625
+                },
+                "tibetan_syllables": {
+                  "count": 10000,
+                  "min": 1,
+                  "mean": 12.9067,
+                  "median": 9.0,
+                  "p90": 26.0,
+                  "p95": 33.0,
+                  "p99": 49.0,
+                  "max": 65
+                },
+                "fertility_tokens_per_tibetan_syllable": {
+                  "count": 10000,
+                  "mean": 2.057299,
+                  "median": 2.043478,
+                  "p95": 2.142857
+                },
+                "unknown_token_total": 0,
+                "examples_with_unknown_token": 0,
+                "unknown_rate_over_tokens": 0.0,
+                "over_256_tokens": 0,
+                "over_512_tokens": 0
+              }
+            }
+          }
+        }
+      },
+      "normalization_source_nllb": {
+        "NFC": {
+          "changed_examples": 0,
+          "token_length": {
+            "count": 10000,
+            "min": 1,
+            "mean": 14.1618,
+            "median": 11.0,
+            "p90": 27.0,
+            "p95": 33.0,
+            "p99": 50.0,
+            "max": 120
+          }
+        },
+        "NFD": {
+          "changed_examples": 0,
+          "token_length": {
+            "count": 10000,
+            "min": 1,
+            "mean": 14.1618,
+            "median": 11.0,
+            "p90": 27.0,
+            "p95": 33.0,
+            "p99": 50.0,
+            "max": 120
+          }
+        }
+      }
+    }
+  },
+  "tokenizers": {
+    "nllb": {
+      "id": "D:\\Courses\\nlp-project\\outputs\\nllb-tokenizer",
+      "class": "NllbTokenizerFast"
+    },
+    "hy_mt2": {
+      "id": "D:\\Courses\\nlp-project\\outputs\\hy-mt2-tokenizer",
+      "class": "PreTrainedTokenizerFast",
+      "vocab_size": 120000
+    },
+    "cs336": {
+      "variants": [
+        "raw",
+        "syllable_aware",
+        "mark_aware"
+      ],
+      "vocab_sizes": [
+        8192,
+        16384
+      ]
+    }
+  }
+}

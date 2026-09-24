@@ -1,0 +1,17 @@
+{
+  "source_commit": "bf7b340cd4f75bda3089479a6367ad94a8cbee10",
+  "input_sha256": "9179AD2F491A77FCEB06A52FDD93E1D2AECE3AD8623EF0BAA18A08E6373DF897",
+  "require_one_to_one": true,
+  "min_source_wylie_chars": 6,
+  "max_source_wylie_chars": 285,
+  "min_target_chinese_chars": 3,
+  "max_target_chinese_chars": 86,
+  "min_target_to_source_char_ratio": 0.03,
+  "max_target_to_source_char_ratio": 3.81,
+  "require_cjk": true,
+  "exclude_ascii_digits": true,
+  "reject_ewts_warnings": true,
+  "require_tibetan_letter_after_conversion": true,
+  "validation_fraction": 0.05,
+  "split_seed": "mitra-v2-document-split-v1"
+}

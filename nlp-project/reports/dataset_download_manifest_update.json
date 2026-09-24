@@ -1,0 +1,16 @@
+{
+  "updated": "2026-09-24",
+  "manifest": "data/manifests/datasets.csv",
+  "updates": [
+    "openpecha_c0a2dd042: status=downloaded files=4618 bytes=84434192 digest=F0034C09530749F7…",
+    "modern_tibetan_corpus: status=downloaded files=8924 bytes=81933343 digest=27D4673D6DC43A19…",
+    "shajiu_publiccorpus_samples: status=downloaded files=12 bytes=23551546 digest=266B48DC7A19EEB8…",
+    "cute_v1: status=downloaded_tibetan_subset_only files=2 bytes=24611145857 digest=116739994FDAE572…",
+    "dongbamie: status=downloaded files=10 bytes=1924975476 digest=705F9AE37B8896C0…",
+    "dongba1800: status=downloaded files=3601 bytes=469913548 digest=511455D5937905E6…",
+    "bdrc_tibetan_ocr_benchmark: status=downloaded files=89 bytes=245191699 digest=9BB3C92AFCF8710E…"
+  ],
+  "not_fetched": {
+    "dongbamie_code": "data/raw/dongbamie_code"
+  }
+}

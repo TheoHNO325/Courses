@@ -1,0 +1,2379 @@
+{
+  "created_at_utc": "2026-09-22T06:23:45.573979+00:00",
+  "model_id": "D:\\Courses\\nlp-project\\outputs\\nllb-tokenizer",
+  "tokenizer_class": "NllbTokenizerFast",
+  "tokenizer_model_max_length": 1024,
+  "trained_input_limit_used_for_flagging": 512,
+  "seed": 336,
+  "datasets": {
+    "flores_dev": {
+      "pairs": 997,
+      "source_language": "bod_Tibt",
+      "target_language": "zho_Hans",
+      "source": {
+        "count": 997,
+        "min": 11,
+        "mean": 43.81,
+        "median": 41,
+        "p90": 65.0,
+        "p95": 72.0,
+        "p99": 90.0,
+        "max": 118,
+        "over_256": 0,
+        "over_512_trained_limit": 0,
+        "unknown_token_total": 127,
+        "examples_with_unknown_token": 75,
+        "top_unknown_spans": [
+          {
+            "text": "྄",
+            "count": 43,
+            "characters": [
+              {
+                "character": "྄",
+                "codepoint": "U+0F84",
+                "unicode_name": "TIBETAN MARK HALANTA"
+              }
+            ]
+          },
+          {
+            "text": "ྥ",
+            "count": 38,
+            "characters": [
+              {
+                "character": "ྥ",
+                "codepoint": "U+0FA5",
+                "unicode_name": "TIBETAN SUBJOINED LETTER PHA"
+              }
+            ]
+          },
+          {
+            "text": "ྚ",
+            "count": 14,
+            "characters": [
+              {
+                "character": "ྚ",
+                "codepoint": "U+0F9A",
+                "unicode_name": "TIBETAN SUBJOINED LETTER TTA"
+              }
+            ]
+          },
+          {
+            "text": "ྰ",
+            "count": 7,
+            "characters": [
+              {
+                "character": "ྰ",
+                "codepoint": "U+0FB0",
+                "unicode_name": "TIBETAN SUBJOINED LETTER -A"
+              }
+            ]
+          },
+          {
+            "text": "”",
+            "count": 6,
+            "characters": [
+              {
+                "character": "”",
+                "codepoint": "U+201D",
+                "unicode_name": "RIGHT DOUBLE QUOTATION MARK"
+              }
+            ]
+          },
+          {
+            "text": "“",
+            "count": 4,
+            "characters": [
+              {
+                "character": "“",
+                "codepoint": "U+201C",
+                "unicode_name": "LEFT DOUBLE QUOTATION MARK"
+              }
+            ]
+          },
+          {
+            "text": "ཻ",
+            "count": 4,
+            "characters": [
+              {
+                "character": "ཻ",
+                "codepoint": "U+0F7B",
+                "unicode_name": "TIBETAN VOWEL SIGN EE"
+              }
+            ]
+          },
+          {
+            "text": "–",
+            "count": 3,
+            "characters": [
+              {
+                "character": "–",
+                "codepoint": "U+2013",
+                "unicode_name": "EN DASH"
+              }
+            ]
+          },
+          {
+            "text": "ྜ",
+            "count": 2,
+            "characters": [
+              {
+                "character": "ྜ",
+                "codepoint": "U+0F9C",
+                "unicode_name": "TIBETAN SUBJOINED LETTER DDA"
+              }
+            ]
+          },
+          {
+            "text": "ྶ",
+            "count": 2,
+            "characters": [
+              {
+                "character": "ྶ",
+                "codepoint": "U+0FB6",
+                "unicode_name": "TIBETAN SUBJOINED LETTER SA"
+              }
+            ]
+          },
+          {
+            "text": "྄༹",
+            "count": 1,
+            "characters": [
+              {
+                "character": "༹",
+                "codepoint": "U+0F39",
+                "unicode_name": "TIBETAN MARK TSA -PHRU"
+              },
+              {
+                "character": "྄",
+                "codepoint": "U+0F84",
+                "unicode_name": "TIBETAN MARK HALANTA"
+              }
+            ]
+          },
+          {
+            "text": "྄྄",
+            "count": 1,
+            "characters": [
+              {
+                "character": "྄",
+                "codepoint": "U+0F84",
+                "unicode_name": "TIBETAN MARK HALANTA"
+              },
+              {
+                "character": "྄",
+                "codepoint": "U+0F84",
+                "unicode_name": "TIBETAN MARK HALANTA"
+              }
+            ]
+          },
+          {
+            "text": "ཋ",
+            "count": 1,
+            "characters": [
+              {
+                "character": "ཋ",
+                "codepoint": "U+0F4B",
+                "unicode_name": "TIBETAN LETTER TTHA"
+              }
+            ]
+          },
+          {
+            "text": "ཽ",
+            "count": 1,
+            "characters": [
+              {
+                "character": "ཽ",
+                "codepoint": "U+0F7D",
+                "unicode_name": "TIBETAN VOWEL SIGN OO"
+              }
+            ]
+          }
+        ]
+      },
+      "target": {
+        "count": 997,
+        "min": 8,
+        "mean": 34.778,
+        "median": 33,
+        "p90": 51.0,
+        "p95": 57.0,
+        "p99": 76.0,
+        "max": 91,
+        "over_256": 0,
+        "over_512_trained_limit": 0,
+        "unknown_token_total": 569,
+        "examples_with_unknown_token": 314,
+        "top_unknown_spans": [
+          {
+            "text": "“",
+            "count": 112,
+            "characters": [
+              {
+                "character": "“",
+                "codepoint": "U+201C",
+                "unicode_name": "LEFT DOUBLE QUOTATION MARK"
+              }
+            ]
+          },
+          {
+            "text": "”",
+            "count": 102,
+            "characters": [
+              {
+                "character": "”",
+                "codepoint": "U+201D",
+                "unicode_name": "RIGHT DOUBLE QUOTATION MARK"
+              }
+            ]
+          },
+          {
+            "text": "《",
+            "count": 24,
+            "characters": [
+              {
+                "character": "《",
+                "codepoint": "U+300A",
+                "unicode_name": "LEFT DOUBLE ANGLE BRACKET"
+              }
+            ]
+          },
+          {
+            "text": "》",
+            "count": 24,
+            "characters": [
+              {
+                "character": "》",
+                "codepoint": "U+300B",
+                "unicode_name": "RIGHT DOUBLE ANGLE BRACKET"
+              }
+            ]
+          },
+          {
+            "text": "庙",
+            "count": 13,
+            "characters": [
+              {
+                "character": "庙",
+                "codepoint": "U+5E99",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-5E99"
+              }
+            ]
+          },
+          {
+            "text": "——",
+            "count": 7,
+            "characters": [
+              {
+                "character": "—",
+                "codepoint": "U+2014",
+                "unicode_name": "EM DASH"
+              },
+              {
+                "character": "—",
+                "codepoint": "U+2014",
+                "unicode_name": "EM DASH"
+              }
+            ]
+          },
+          {
+            "text": "舱",
+            "count": 7,
+            "characters": [
+              {
+                "character": "舱",
+                "codepoint": "U+8231",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-8231"
+              }
+            ]
+          },
+          {
+            "text": "瀑",
+            "count": 6,
+            "characters": [
+              {
+                "character": "瀑",
+                "codepoint": "U+7011",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-7011"
+              }
+            ]
+          },
+          {
+            "text": "飓",
+            "count": 5,
+            "characters": [
+              {
+                "character": "飓",
+                "codepoint": "U+98D3",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-98D3"
+              }
+            ]
+          },
+          {
+            "text": "厢",
+            "count": 5,
+            "characters": [
+              {
+                "character": "厢",
+                "codepoint": "U+53A2",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-53A2"
+              }
+            ]
+          },
+          {
+            "text": "弯",
+            "count": 5,
+            "characters": [
+              {
+                "character": "弯",
+                "codepoint": "U+5F2F",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-5F2F"
+              }
+            ]
+          },
+          {
+            "text": "梵",
+            "count": 5,
+            "characters": [
+              {
+                "character": "梵",
+                "codepoint": "U+68B5",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-68B5"
+              }
+            ]
+          },
+          {
+            "text": "鸦",
+            "count": 5,
+            "characters": [
+              {
+                "character": "鸦",
+                "codepoint": "U+9E26",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-9E26"
+              }
+            ]
+          },
+          {
+            "text": "镖",
+            "count": 5,
+            "characters": [
+              {
+                "character": "镖",
+                "codepoint": "U+9556",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-9556"
+              }
+            ]
+          },
+          {
+            "text": "浓",
+            "count": 4,
+            "characters": [
+              {
+                "character": "浓",
+                "codepoint": "U+6D53",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-6D53"
+              }
+            ]
+          },
+          {
+            "text": "坠",
+            "count": 4,
+            "characters": [
+              {
+                "character": "坠",
+                "codepoint": "U+5760",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-5760"
+              }
+            ]
+          },
+          {
+            "text": "掷",
+            "count": 4,
+            "characters": [
+              {
+                "character": "掷",
+                "codepoint": "U+63B7",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-63B7"
+              }
+            ]
+          },
+          {
+            "text": "陡",
+            "count": 4,
+            "characters": [
+              {
+                "character": "陡",
+                "codepoint": "U+9661",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-9661"
+              }
+            ]
+          },
+          {
+            "text": "蚁",
+            "count": 4,
+            "characters": [
+              {
+                "character": "蚁",
+                "codepoint": "U+8681",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-8681"
+              }
+            ]
+          },
+          {
+            "text": "陡峭",
+            "count": 4,
+            "characters": [
+              {
+                "character": "陡",
+                "codepoint": "U+9661",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-9661"
+              },
+              {
+                "character": "峭",
+                "codepoint": "U+5CED",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-5CED"
+              }
+            ]
+          },
+          {
+            "text": "胶",
+            "count": 4,
+            "characters": [
+              {
+                "character": "胶",
+                "codepoint": "U+80F6",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-80F6"
+              }
+            ]
+          },
+          {
+            "text": "垫",
+            "count": 3,
+            "characters": [
+              {
+                "character": "垫",
+                "codepoint": "U+57AB",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-57AB"
+              }
+            ]
+          },
+          {
+            "text": "汤",
+            "count": 3,
+            "characters": [
+              {
+                "character": "汤",
+                "codepoint": "U+6C64",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-6C64"
+              }
+            ]
+          },
+          {
+            "text": "榻",
+            "count": 3,
+            "characters": [
+              {
+                "character": "榻",
+                "codepoint": "U+69BB",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-69BB"
+              }
+            ]
+          },
+          {
+            "text": "榄",
+            "count": 3,
+            "characters": [
+              {
+                "character": "榄",
+                "codepoint": "U+6984",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-6984"
+              }
+            ]
+          },
+          {
+            "text": "闲",
+            "count": 3,
+            "characters": [
+              {
+                "character": "闲",
+                "codepoint": "U+95F2",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-95F2"
+              }
+            ]
+          },
+          {
+            "text": "滩",
+            "count": 3,
+            "characters": [
+              {
+                "character": "滩",
+                "codepoint": "U+6EE9",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-6EE9"
+              }
+            ]
+          },
+          {
+            "text": "锻",
+            "count": 3,
+            "characters": [
+              {
+                "character": "锻",
+                "codepoint": "U+953B",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-953B"
+              }
+            ]
+          },
+          {
+            "text": "畅",
+            "count": 3,
+            "characters": [
+              {
+                "character": "畅",
+                "codepoint": "U+7545",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-7545"
+              }
+            ]
+          },
+          {
+            "text": "氮",
+            "count": 3,
+            "characters": [
+              {
+                "character": "氮",
+                "codepoint": "U+6C2E",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-6C2E"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "flores_devtest": {
+      "pairs": 1012,
+      "source_language": "bod_Tibt",
+      "target_language": "zho_Hans",
+      "source": {
+        "count": 1012,
+        "min": 16,
+        "mean": 45.267,
+        "median": 43.0,
+        "p90": 65.0,
+        "p95": 72.0,
+        "p99": 90.0,
+        "max": 131,
+        "over_256": 0,
+        "over_512_trained_limit": 0,
+        "unknown_token_total": 186,
+        "examples_with_unknown_token": 78,
+        "top_unknown_spans": [
+          {
+            "text": "྄",
+            "count": 102,
+            "characters": [
+              {
+                "character": "྄",
+                "codepoint": "U+0F84",
+                "unicode_name": "TIBETAN MARK HALANTA"
+              }
+            ]
+          },
+          {
+            "text": "ྥ",
+            "count": 32,
+            "characters": [
+              {
+                "character": "ྥ",
+                "codepoint": "U+0FA5",
+                "unicode_name": "TIBETAN SUBJOINED LETTER PHA"
+              }
+            ]
+          },
+          {
+            "text": "“",
+            "count": 9,
+            "characters": [
+              {
+                "character": "“",
+                "codepoint": "U+201C",
+                "unicode_name": "LEFT DOUBLE QUOTATION MARK"
+              }
+            ]
+          },
+          {
+            "text": "”",
+            "count": 8,
+            "characters": [
+              {
+                "character": "”",
+                "codepoint": "U+201D",
+                "unicode_name": "RIGHT DOUBLE QUOTATION MARK"
+              }
+            ]
+          },
+          {
+            "text": "ཻ",
+            "count": 6,
+            "characters": [
+              {
+                "character": "ཻ",
+                "codepoint": "U+0F7B",
+                "unicode_name": "TIBETAN VOWEL SIGN EE"
+              }
+            ]
+          },
+          {
+            "text": "ྚ",
+            "count": 5,
+            "characters": [
+              {
+                "character": "ྚ",
+                "codepoint": "U+0F9A",
+                "unicode_name": "TIBETAN SUBJOINED LETTER TTA"
+              }
+            ]
+          },
+          {
+            "text": "’",
+            "count": 5,
+            "characters": [
+              {
+                "character": "’",
+                "codepoint": "U+2019",
+                "unicode_name": "RIGHT SINGLE QUOTATION MARK"
+              }
+            ]
+          },
+          {
+            "text": "‘",
+            "count": 3,
+            "characters": [
+              {
+                "character": "‘",
+                "codepoint": "U+2018",
+                "unicode_name": "LEFT SINGLE QUOTATION MARK"
+              }
+            ]
+          },
+          {
+            "text": "༹",
+            "count": 3,
+            "characters": [
+              {
+                "character": "༹",
+                "codepoint": "U+0F39",
+                "unicode_name": "TIBETAN MARK TSA -PHRU"
+              }
+            ]
+          },
+          {
+            "text": "ཋ",
+            "count": 3,
+            "characters": [
+              {
+                "character": "ཋ",
+                "codepoint": "U+0F4B",
+                "unicode_name": "TIBETAN LETTER TTHA"
+              }
+            ]
+          },
+          {
+            "text": "—",
+            "count": 2,
+            "characters": [
+              {
+                "character": "—",
+                "codepoint": "U+2014",
+                "unicode_name": "EM DASH"
+              }
+            ]
+          },
+          {
+            "text": "ྶ",
+            "count": 1,
+            "characters": [
+              {
+                "character": "ྶ",
+                "codepoint": "U+0FB6",
+                "unicode_name": "TIBETAN SUBJOINED LETTER SA"
+              }
+            ]
+          },
+          {
+            "text": "༷",
+            "count": 1,
+            "characters": [
+              {
+                "character": "༷",
+                "codepoint": "U+0F37",
+                "unicode_name": "TIBETAN MARK NGAS BZUNG SGOR RTAGS"
+              }
+            ]
+          },
+          {
+            "text": "ྰ",
+            "count": 1,
+            "characters": [
+              {
+                "character": "ྰ",
+                "codepoint": "U+0FB0",
+                "unicode_name": "TIBETAN SUBJOINED LETTER -A"
+              }
+            ]
+          },
+          {
+            "text": "ྼ",
+            "count": 1,
+            "characters": [
+              {
+                "character": "ྼ",
+                "codepoint": "U+0FBC",
+                "unicode_name": "TIBETAN SUBJOINED LETTER FIXED-FORM RA"
+              }
+            ]
+          },
+          {
+            "text": "྄྄",
+            "count": 1,
+            "characters": [
+              {
+                "character": "྄",
+                "codepoint": "U+0F84",
+                "unicode_name": "TIBETAN MARK HALANTA"
+              },
+              {
+                "character": "྄",
+                "codepoint": "U+0F84",
+                "unicode_name": "TIBETAN MARK HALANTA"
+              }
+            ]
+          },
+          {
+            "text": "ཪ",
+            "count": 1,
+            "characters": [
+              {
+                "character": "ཪ",
+                "codepoint": "U+0F6A",
+                "unicode_name": "TIBETAN LETTER FIXED-FORM RA"
+              }
+            ]
+          },
+          {
+            "text": "’”",
+            "count": 1,
+            "characters": [
+              {
+                "character": "’",
+                "codepoint": "U+2019",
+                "unicode_name": "RIGHT SINGLE QUOTATION MARK"
+              },
+              {
+                "character": "”",
+                "codepoint": "U+201D",
+                "unicode_name": "RIGHT DOUBLE QUOTATION MARK"
+              }
+            ]
+          },
+          {
+            "text": "–",
+            "count": 1,
+            "characters": [
+              {
+                "character": "–",
+                "codepoint": "U+2013",
+                "unicode_name": "EN DASH"
+              }
+            ]
+          }
+        ]
+      },
+      "target": {
+        "count": 1012,
+        "min": 11,
+        "mean": 35.081,
+        "median": 33.0,
+        "p90": 52.0,
+        "p95": 59.0,
+        "p99": 72.0,
+        "max": 89,
+        "over_256": 0,
+        "over_512_trained_limit": 0,
+        "unknown_token_total": 669,
+        "examples_with_unknown_token": 357,
+        "top_unknown_spans": [
+          {
+            "text": "“",
+            "count": 107,
+            "characters": [
+              {
+                "character": "“",
+                "codepoint": "U+201C",
+                "unicode_name": "LEFT DOUBLE QUOTATION MARK"
+              }
+            ]
+          },
+          {
+            "text": "”",
+            "count": 104,
+            "characters": [
+              {
+                "character": "”",
+                "codepoint": "U+201D",
+                "unicode_name": "RIGHT DOUBLE QUOTATION MARK"
+              }
+            ]
+          },
+          {
+            "text": "《",
+            "count": 26,
+            "characters": [
+              {
+                "character": "《",
+                "codepoint": "U+300A",
+                "unicode_name": "LEFT DOUBLE ANGLE BRACKET"
+              }
+            ]
+          },
+          {
+            "text": "》",
+            "count": 26,
+            "characters": [
+              {
+                "character": "》",
+                "codepoint": "U+300B",
+                "unicode_name": "RIGHT DOUBLE ANGLE BRACKET"
+              }
+            ]
+          },
+          {
+            "text": "滩",
+            "count": 11,
+            "characters": [
+              {
+                "character": "滩",
+                "codepoint": "U+6EE9",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-6EE9"
+              }
+            ]
+          },
+          {
+            "text": "啸",
+            "count": 9,
+            "characters": [
+              {
+                "character": "啸",
+                "codepoint": "U+5578",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-5578"
+              }
+            ]
+          },
+          {
+            "text": "——",
+            "count": 8,
+            "characters": [
+              {
+                "character": "—",
+                "codepoint": "U+2014",
+                "unicode_name": "EM DASH"
+              },
+              {
+                "character": "—",
+                "codepoint": "U+2014",
+                "unicode_name": "EM DASH"
+              }
+            ]
+          },
+          {
+            "text": "豹",
+            "count": 8,
+            "characters": [
+              {
+                "character": "豹",
+                "codepoint": "U+8C79",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-8C79"
+              }
+            ]
+          },
+          {
+            "text": "舱",
+            "count": 8,
+            "characters": [
+              {
+                "character": "舱",
+                "codepoint": "U+8231",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-8231"
+              }
+            ]
+          },
+          {
+            "text": "壳",
+            "count": 6,
+            "characters": [
+              {
+                "character": "壳",
+                "codepoint": "U+58F3",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-58F3"
+              }
+            ]
+          },
+          {
+            "text": "榄",
+            "count": 5,
+            "characters": [
+              {
+                "character": "榄",
+                "codepoint": "U+6984",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-6984"
+              }
+            ]
+          },
+          {
+            "text": "瑜伽",
+            "count": 5,
+            "characters": [
+              {
+                "character": "瑜",
+                "codepoint": "U+745C",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-745C"
+              },
+              {
+                "character": "伽",
+                "codepoint": "U+4F3D",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-4F3D"
+              }
+            ]
+          },
+          {
+            "text": "驯",
+            "count": 5,
+            "characters": [
+              {
+                "character": "驯",
+                "codepoint": "U+9A6F",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-9A6F"
+              }
+            ]
+          },
+          {
+            "text": "铃",
+            "count": 4,
+            "characters": [
+              {
+                "character": "铃",
+                "codepoint": "U+94C3",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-94C3"
+              }
+            ]
+          },
+          {
+            "text": "汤",
+            "count": 4,
+            "characters": [
+              {
+                "character": "汤",
+                "codepoint": "U+6C64",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-6C64"
+              }
+            ]
+          },
+          {
+            "text": "坠",
+            "count": 4,
+            "characters": [
+              {
+                "character": "坠",
+                "codepoint": "U+5760",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-5760"
+              }
+            ]
+          },
+          {
+            "text": "沫",
+            "count": 4,
+            "characters": [
+              {
+                "character": "沫",
+                "codepoint": "U+6CAB",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-6CAB"
+              }
+            ]
+          },
+          {
+            "text": "宠",
+            "count": 4,
+            "characters": [
+              {
+                "character": "宠",
+                "codepoint": "U+5BA0",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-5BA0"
+              }
+            ]
+          },
+          {
+            "text": "氰",
+            "count": 4,
+            "characters": [
+              {
+                "character": "氰",
+                "codepoint": "U+6C30",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-6C30"
+              }
+            ]
+          },
+          {
+            "text": "攀",
+            "count": 4,
+            "characters": [
+              {
+                "character": "攀",
+                "codepoint": "U+6500",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-6500"
+              }
+            ]
+          },
+          {
+            "text": "肴",
+            "count": 4,
+            "characters": [
+              {
+                "character": "肴",
+                "codepoint": "U+80B4",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-80B4"
+              }
+            ]
+          },
+          {
+            "text": "庙",
+            "count": 4,
+            "characters": [
+              {
+                "character": "庙",
+                "codepoint": "U+5E99",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-5E99"
+              }
+            ]
+          },
+          {
+            "text": "裙",
+            "count": 4,
+            "characters": [
+              {
+                "character": "裙",
+                "codepoint": "U+88D9",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-88D9"
+              }
+            ]
+          },
+          {
+            "text": "闹",
+            "count": 4,
+            "characters": [
+              {
+                "character": "闹",
+                "codepoint": "U+95F9",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-95F9"
+              }
+            ]
+          },
+          {
+            "text": "赌",
+            "count": 4,
+            "characters": [
+              {
+                "character": "赌",
+                "codepoint": "U+8D4C",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-8D4C"
+              }
+            ]
+          },
+          {
+            "text": "鸡",
+            "count": 3,
+            "characters": [
+              {
+                "character": "鸡",
+                "codepoint": "U+9E21",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-9E21"
+              }
+            ]
+          },
+          {
+            "text": "飓",
+            "count": 3,
+            "characters": [
+              {
+                "character": "飓",
+                "codepoint": "U+98D3",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-98D3"
+              }
+            ]
+          },
+          {
+            "text": "坝",
+            "count": 3,
+            "characters": [
+              {
+                "character": "坝",
+                "codepoint": "U+575D",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-575D"
+              }
+            ]
+          },
+          {
+            "text": "硕",
+            "count": 3,
+            "characters": [
+              {
+                "character": "硕",
+                "codepoint": "U+7855",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-7855"
+              }
+            ]
+          },
+          {
+            "text": "娅",
+            "count": 3,
+            "characters": [
+              {
+                "character": "娅",
+                "codepoint": "U+5A05",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-5A05"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "mitra_validation": {
+      "pairs": 23219,
+      "source_language": "bod_Tibt",
+      "target_language": "zho_Hant",
+      "source": {
+        "count": 23219,
+        "min": 3,
+        "mean": 16.208,
+        "median": 13,
+        "p90": 29.0,
+        "p95": 35.0,
+        "p99": 50.0,
+        "max": 119,
+        "over_256": 0,
+        "over_512_trained_limit": 0,
+        "unknown_token_total": 325,
+        "examples_with_unknown_token": 242,
+        "top_unknown_spans": [
+          {
+            "text": "ྵ",
+            "count": 62,
+            "characters": [
+              {
+                "character": "ྵ",
+                "codepoint": "U+0FB5",
+                "unicode_name": "TIBETAN SUBJOINED LETTER SSA"
+              }
+            ]
+          },
+          {
+            "text": "ཥ",
+            "count": 58,
+            "characters": [
+              {
+                "character": "ཥ",
+                "codepoint": "U+0F65",
+                "unicode_name": "TIBETAN LETTER SSA"
+              }
+            ]
+          },
+          {
+            "text": "ཥྚ",
+            "count": 40,
+            "characters": [
+              {
+                "character": "ཥ",
+                "codepoint": "U+0F65",
+                "unicode_name": "TIBETAN LETTER SSA"
+              },
+              {
+                "character": "ྚ",
+                "codepoint": "U+0F9A",
+                "unicode_name": "TIBETAN SUBJOINED LETTER TTA"
+              }
+            ]
+          },
+          {
+            "text": "ྪ",
+            "count": 27,
+            "characters": [
+              {
+                "character": "ྪ",
+                "codepoint": "U+0FAA",
+                "unicode_name": "TIBETAN SUBJOINED LETTER TSHA"
+              }
+            ]
+          },
+          {
+            "text": "ྜ",
+            "count": 26,
+            "characters": [
+              {
+                "character": "ྜ",
+                "codepoint": "U+0F9C",
+                "unicode_name": "TIBETAN SUBJOINED LETTER DDA"
+              }
+            ]
+          },
+          {
+            "text": "ཻ",
+            "count": 22,
+            "characters": [
+              {
+                "character": "ཻ",
+                "codepoint": "U+0F7B",
+                "unicode_name": "TIBETAN VOWEL SIGN EE"
+              }
+            ]
+          },
+          {
+            "text": "ྞ",
+            "count": 16,
+            "characters": [
+              {
+                "character": "ྞ",
+                "codepoint": "U+0F9E",
+                "unicode_name": "TIBETAN SUBJOINED LETTER NNA"
+              }
+            ]
+          },
+          {
+            "text": "ཥྛ",
+            "count": 15,
+            "characters": [
+              {
+                "character": "ཥ",
+                "codepoint": "U+0F65",
+                "unicode_name": "TIBETAN LETTER SSA"
+              },
+              {
+                "character": "ྛ",
+                "codepoint": "U+0F9B",
+                "unicode_name": "TIBETAN SUBJOINED LETTER TTHA"
+              }
+            ]
+          },
+          {
+            "text": "ྥ",
+            "count": 12,
+            "characters": [
+              {
+                "character": "ྥ",
+                "codepoint": "U+0FA5",
+                "unicode_name": "TIBETAN SUBJOINED LETTER PHA"
+              }
+            ]
+          },
+          {
+            "text": "ྚ",
+            "count": 12,
+            "characters": [
+              {
+                "character": "ྚ",
+                "codepoint": "U+0F9A",
+                "unicode_name": "TIBETAN SUBJOINED LETTER TTA"
+              }
+            ]
+          },
+          {
+            "text": "ྠ",
+            "count": 9,
+            "characters": [
+              {
+                "character": "ྠ",
+                "codepoint": "U+0FA0",
+                "unicode_name": "TIBETAN SUBJOINED LETTER THA"
+              }
+            ]
+          },
+          {
+            "text": "ཥྞ",
+            "count": 5,
+            "characters": [
+              {
+                "character": "ཥ",
+                "codepoint": "U+0F65",
+                "unicode_name": "TIBETAN LETTER SSA"
+              },
+              {
+                "character": "ྞ",
+                "codepoint": "U+0F9E",
+                "unicode_name": "TIBETAN SUBJOINED LETTER NNA"
+              }
+            ]
+          },
+          {
+            "text": "ཽ",
+            "count": 5,
+            "characters": [
+              {
+                "character": "ཽ",
+                "codepoint": "U+0F7D",
+                "unicode_name": "TIBETAN VOWEL SIGN OO"
+              }
+            ]
+          },
+          {
+            "text": "ྴ",
+            "count": 4,
+            "characters": [
+              {
+                "character": "ྴ",
+                "codepoint": "U+0FB4",
+                "unicode_name": "TIBETAN SUBJOINED LETTER SHA"
+              }
+            ]
+          },
+          {
+            "text": "ྵྞ",
+            "count": 3,
+            "characters": [
+              {
+                "character": "ྵ",
+                "codepoint": "U+0FB5",
+                "unicode_name": "TIBETAN SUBJOINED LETTER SSA"
+              },
+              {
+                "character": "ྞ",
+                "codepoint": "U+0F9E",
+                "unicode_name": "TIBETAN SUBJOINED LETTER NNA"
+              }
+            ]
+          },
+          {
+            "text": "ྶ",
+            "count": 2,
+            "characters": [
+              {
+                "character": "ྶ",
+                "codepoint": "U+0FB6",
+                "unicode_name": "TIBETAN SUBJOINED LETTER SA"
+              }
+            ]
+          },
+          {
+            "text": "ྰ",
+            "count": 1,
+            "characters": [
+              {
+                "character": "ྰ",
+                "codepoint": "U+0FB0",
+                "unicode_name": "TIBETAN SUBJOINED LETTER -A"
+              }
+            ]
+          },
+          {
+            "text": "ཪྻ",
+            "count": 1,
+            "characters": [
+              {
+                "character": "ཪ",
+                "codepoint": "U+0F6A",
+                "unicode_name": "TIBETAN LETTER FIXED-FORM RA"
+              },
+              {
+                "character": "ྻ",
+                "codepoint": "U+0FBB",
+                "unicode_name": "TIBETAN SUBJOINED LETTER FIXED-FORM YA"
+              }
+            ]
+          },
+          {
+            "text": "ྻ",
+            "count": 1,
+            "characters": [
+              {
+                "character": "ྻ",
+                "codepoint": "U+0FBB",
+                "unicode_name": "TIBETAN SUBJOINED LETTER FIXED-FORM YA"
+              }
+            ]
+          },
+          {
+            "text": "ྼ",
+            "count": 1,
+            "characters": [
+              {
+                "character": "ྼ",
+                "codepoint": "U+0FBC",
+                "unicode_name": "TIBETAN SUBJOINED LETTER FIXED-FORM RA"
+              }
+            ]
+          },
+          {
+            "text": "ཪྵ",
+            "count": 1,
+            "characters": [
+              {
+                "character": "ཪ",
+                "codepoint": "U+0F6A",
+                "unicode_name": "TIBETAN LETTER FIXED-FORM RA"
+              },
+              {
+                "character": "ྵ",
+                "codepoint": "U+0FB5",
+                "unicode_name": "TIBETAN SUBJOINED LETTER SSA"
+              }
+            ]
+          },
+          {
+            "text": "ཥྜ",
+            "count": 1,
+            "characters": [
+              {
+                "character": "ཥ",
+                "codepoint": "U+0F65",
+                "unicode_name": "TIBETAN LETTER SSA"
+              },
+              {
+                "character": "ྜ",
+                "codepoint": "U+0F9C",
+                "unicode_name": "TIBETAN SUBJOINED LETTER DDA"
+              }
+            ]
+          },
+          {
+            "text": "ཥྵ",
+            "count": 1,
+            "characters": [
+              {
+                "character": "ཥ",
+                "codepoint": "U+0F65",
+                "unicode_name": "TIBETAN LETTER SSA"
+              },
+              {
+                "character": "ྵ",
+                "codepoint": "U+0FB5",
+                "unicode_name": "TIBETAN SUBJOINED LETTER SSA"
+              }
+            ]
+          }
+        ]
+      },
+      "target": {
+        "count": 23219,
+        "min": 4,
+        "mean": 19.496,
+        "median": 16,
+        "p90": 38.0,
+        "p95": 49.0,
+        "p99": 70.0,
+        "max": 88,
+        "over_256": 0,
+        "over_512_trained_limit": 0,
+        "unknown_token_total": 11073,
+        "examples_with_unknown_token": 6791,
+        "top_unknown_spans": [
+          {
+            "text": "惱",
+            "count": 702,
+            "characters": [
+              {
+                "character": "惱",
+                "codepoint": "U+60F1",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-60F1"
+              }
+            ]
+          },
+          {
+            "text": "訶",
+            "count": 525,
+            "characters": [
+              {
+                "character": "訶",
+                "codepoint": "U+8A36",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-8A36"
+              }
+            ]
+          },
+          {
+            "text": "囉",
+            "count": 505,
+            "characters": [
+              {
+                "character": "囉",
+                "codepoint": "U+56C9",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-56C9"
+              }
+            ]
+          },
+          {
+            "text": "嚩",
+            "count": 482,
+            "characters": [
+              {
+                "character": "嚩",
+                "codepoint": "U+56A9",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-56A9"
+              }
+            ]
+          },
+          {
+            "text": "拏",
+            "count": 466,
+            "characters": [
+              {
+                "character": "拏",
+                "codepoint": "U+62CF",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-62CF"
+              }
+            ]
+          },
+          {
+            "text": "唵",
+            "count": 338,
+            "characters": [
+              {
+                "character": "唵",
+                "codepoint": "U+5535",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-5535"
+              }
+            ]
+          },
+          {
+            "text": "顛",
+            "count": 297,
+            "characters": [
+              {
+                "character": "顛",
+                "codepoint": "U+985B",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-985B"
+              }
+            ]
+          },
+          {
+            "text": "吽",
+            "count": 252,
+            "characters": [
+              {
+                "character": "吽",
+                "codepoint": "U+543D",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-543D"
+              }
+            ]
+          },
+          {
+            "text": "蘊",
+            "count": 240,
+            "characters": [
+              {
+                "character": "蘊",
+                "codepoint": "U+860A",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-860A"
+              }
+            ]
+          },
+          {
+            "text": "埵",
+            "count": 212,
+            "characters": [
+              {
+                "character": "埵",
+                "codepoint": "U+57F5",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-57F5"
+              }
+            ]
+          },
+          {
+            "text": "羯",
+            "count": 196,
+            "characters": [
+              {
+                "character": "羯",
+                "codepoint": "U+7FAF",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-7FAF"
+              }
+            ]
+          },
+          {
+            "text": "剎",
+            "count": 195,
+            "characters": [
+              {
+                "character": "剎",
+                "codepoint": "U+524E",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-524E"
+              }
+            ]
+          },
+          {
+            "text": "槃",
+            "count": 171,
+            "characters": [
+              {
+                "character": "槃",
+                "codepoint": "U+69C3",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-69C3"
+              }
+            ]
+          },
+          {
+            "text": "癡",
+            "count": 147,
+            "characters": [
+              {
+                "character": "癡",
+                "codepoint": "U+7661",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-7661"
+              }
+            ]
+          },
+          {
+            "text": "毘",
+            "count": 145,
+            "characters": [
+              {
+                "character": "毘",
+                "codepoint": "U+6BD8",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-6BD8"
+              }
+            ]
+          },
+          {
+            "text": "梵",
+            "count": 142,
+            "characters": [
+              {
+                "character": "梵",
+                "codepoint": "U+68B5",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-68B5"
+              }
+            ]
+          },
+          {
+            "text": "鉤",
+            "count": 141,
+            "characters": [
+              {
+                "character": "鉤",
+                "codepoint": "U+9264",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-9264"
+              }
+            ]
+          },
+          {
+            "text": "吒",
+            "count": 132,
+            "characters": [
+              {
+                "character": "吒",
+                "codepoint": "U+5412",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-5412"
+              }
+            ]
+          },
+          {
+            "text": "耨",
+            "count": 129,
+            "characters": [
+              {
+                "character": "耨",
+                "codepoint": "U+8028",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-8028"
+              }
+            ]
+          },
+          {
+            "text": "苾芻",
+            "count": 125,
+            "characters": [
+              {
+                "character": "苾",
+                "codepoint": "U+82FE",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-82FE"
+              },
+              {
+                "character": "芻",
+                "codepoint": "U+82BB",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-82BB"
+              }
+            ]
+          },
+          {
+            "text": "彌",
+            "count": 123,
+            "characters": [
+              {
+                "character": "彌",
+                "codepoint": "U+5F4C",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-5F4C"
+              }
+            ]
+          },
+          {
+            "text": "禪",
+            "count": 106,
+            "characters": [
+              {
+                "character": "禪",
+                "codepoint": "U+79AA",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-79AA"
+              }
+            ]
+          },
+          {
+            "text": "鬘",
+            "count": 97,
+            "characters": [
+              {
+                "character": "鬘",
+                "codepoint": "U+9B18",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-9B18"
+              }
+            ]
+          },
+          {
+            "text": "伽",
+            "count": 89,
+            "characters": [
+              {
+                "character": "伽",
+                "codepoint": "U+4F3D",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-4F3D"
+              }
+            ]
+          },
+          {
+            "text": "熾",
+            "count": 89,
+            "characters": [
+              {
+                "character": "熾",
+                "codepoint": "U+71BE",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-71BE"
+              }
+            ]
+          },
+          {
+            "text": "墮",
+            "count": 88,
+            "characters": [
+              {
+                "character": "墮",
+                "codepoint": "U+58AE",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-58AE"
+              }
+            ]
+          },
+          {
+            "text": "麁",
+            "count": 81,
+            "characters": [
+              {
+                "character": "麁",
+                "codepoint": "U+9E81",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-9E81"
+              }
+            ]
+          },
+          {
+            "text": "瞋",
+            "count": 80,
+            "characters": [
+              {
+                "character": "瞋",
+                "codepoint": "U+778B",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-778B"
+              }
+            ]
+          },
+          {
+            "text": "嚕",
+            "count": 76,
+            "characters": [
+              {
+                "character": "嚕",
+                "codepoint": "U+5695",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-5695"
+              }
+            ]
+          },
+          {
+            "text": "馱",
+            "count": 73,
+            "characters": [
+              {
+                "character": "馱",
+                "codepoint": "U+99B1",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-99B1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "mitra_train_sample": {
+      "pairs": 5000,
+      "source_language": "bod_Tibt",
+      "target_language": "zho_Hant",
+      "source": {
+        "count": 5000,
+        "min": 3,
+        "mean": 16.031,
+        "median": 13.0,
+        "p90": 28.0,
+        "p95": 36.0,
+        "p99": 51.0,
+        "max": 78,
+        "over_256": 0,
+        "over_512_trained_limit": 0,
+        "unknown_token_total": 60,
+        "examples_with_unknown_token": 51,
+        "top_unknown_spans": [
+          {
+            "text": "ཽ",
+            "count": 12,
+            "characters": [
+              {
+                "character": "ཽ",
+                "codepoint": "U+0F7D",
+                "unicode_name": "TIBETAN VOWEL SIGN OO"
+              }
+            ]
+          },
+          {
+            "text": "ཻ",
+            "count": 10,
+            "characters": [
+              {
+                "character": "ཻ",
+                "codepoint": "U+0F7B",
+                "unicode_name": "TIBETAN VOWEL SIGN EE"
+              }
+            ]
+          },
+          {
+            "text": "ྵ",
+            "count": 9,
+            "characters": [
+              {
+                "character": "ྵ",
+                "codepoint": "U+0FB5",
+                "unicode_name": "TIBETAN SUBJOINED LETTER SSA"
+              }
+            ]
+          },
+          {
+            "text": "ྪ",
+            "count": 9,
+            "characters": [
+              {
+                "character": "ྪ",
+                "codepoint": "U+0FAA",
+                "unicode_name": "TIBETAN SUBJOINED LETTER TSHA"
+              }
+            ]
+          },
+          {
+            "text": "ཥ",
+            "count": 4,
+            "characters": [
+              {
+                "character": "ཥ",
+                "codepoint": "U+0F65",
+                "unicode_name": "TIBETAN LETTER SSA"
+              }
+            ]
+          },
+          {
+            "text": "ཋ",
+            "count": 3,
+            "characters": [
+              {
+                "character": "ཋ",
+                "codepoint": "U+0F4B",
+                "unicode_name": "TIBETAN LETTER TTHA"
+              }
+            ]
+          },
+          {
+            "text": "ྜ",
+            "count": 3,
+            "characters": [
+              {
+                "character": "ྜ",
+                "codepoint": "U+0F9C",
+                "unicode_name": "TIBETAN SUBJOINED LETTER DDA"
+              }
+            ]
+          },
+          {
+            "text": "ྥ",
+            "count": 3,
+            "characters": [
+              {
+                "character": "ྥ",
+                "codepoint": "U+0FA5",
+                "unicode_name": "TIBETAN SUBJOINED LETTER PHA"
+              }
+            ]
+          },
+          {
+            "text": "ྵྞ",
+            "count": 1,
+            "characters": [
+              {
+                "character": "ྵ",
+                "codepoint": "U+0FB5",
+                "unicode_name": "TIBETAN SUBJOINED LETTER SSA"
+              },
+              {
+                "character": "ྞ",
+                "codepoint": "U+0F9E",
+                "unicode_name": "TIBETAN SUBJOINED LETTER NNA"
+              }
+            ]
+          },
+          {
+            "text": "ཪྵ",
+            "count": 1,
+            "characters": [
+              {
+                "character": "ཪ",
+                "codepoint": "U+0F6A",
+                "unicode_name": "TIBETAN LETTER FIXED-FORM RA"
+              },
+              {
+                "character": "ྵ",
+                "codepoint": "U+0FB5",
+                "unicode_name": "TIBETAN SUBJOINED LETTER SSA"
+              }
+            ]
+          },
+          {
+            "text": "ྞ",
+            "count": 1,
+            "characters": [
+              {
+                "character": "ྞ",
+                "codepoint": "U+0F9E",
+                "unicode_name": "TIBETAN SUBJOINED LETTER NNA"
+              }
+            ]
+          },
+          {
+            "text": "ཥྚ",
+            "count": 1,
+            "characters": [
+              {
+                "character": "ཥ",
+                "codepoint": "U+0F65",
+                "unicode_name": "TIBETAN LETTER SSA"
+              },
+              {
+                "character": "ྚ",
+                "codepoint": "U+0F9A",
+                "unicode_name": "TIBETAN SUBJOINED LETTER TTA"
+              }
+            ]
+          },
+          {
+            "text": "ཥྛ",
+            "count": 1,
+            "characters": [
+              {
+                "character": "ཥ",
+                "codepoint": "U+0F65",
+                "unicode_name": "TIBETAN LETTER SSA"
+              },
+              {
+                "character": "ྛ",
+                "codepoint": "U+0F9B",
+                "unicode_name": "TIBETAN SUBJOINED LETTER TTHA"
+              }
+            ]
+          },
+          {
+            "text": "ྠ",
+            "count": 1,
+            "characters": [
+              {
+                "character": "ྠ",
+                "codepoint": "U+0FA0",
+                "unicode_name": "TIBETAN SUBJOINED LETTER THA"
+              }
+            ]
+          },
+          {
+            "text": "ཥྞ",
+            "count": 1,
+            "characters": [
+              {
+                "character": "ཥ",
+                "codepoint": "U+0F65",
+                "unicode_name": "TIBETAN LETTER SSA"
+              },
+              {
+                "character": "ྞ",
+                "codepoint": "U+0F9E",
+                "unicode_name": "TIBETAN SUBJOINED LETTER NNA"
+              }
+            ]
+          }
+        ]
+      },
+      "target": {
+        "count": 5000,
+        "min": 5,
+        "mean": 20.087,
+        "median": 16.0,
+        "p90": 37.0,
+        "p95": 47.0,
+        "p99": 71.0,
+        "max": 85,
+        "over_256": 0,
+        "over_512_trained_limit": 0,
+        "unknown_token_total": 2569,
+        "examples_with_unknown_token": 1573,
+        "top_unknown_spans": [
+          {
+            "text": "惱",
+            "count": 101,
+            "characters": [
+              {
+                "character": "惱",
+                "codepoint": "U+60F1",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-60F1"
+              }
+            ]
+          },
+          {
+            "text": "苾芻",
+            "count": 93,
+            "characters": [
+              {
+                "character": "苾",
+                "codepoint": "U+82FE",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-82FE"
+              },
+              {
+                "character": "芻",
+                "codepoint": "U+82BB",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-82BB"
+              }
+            ]
+          },
+          {
+            "text": "訶",
+            "count": 85,
+            "characters": [
+              {
+                "character": "訶",
+                "codepoint": "U+8A36",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-8A36"
+              }
+            ]
+          },
+          {
+            "text": "槃",
+            "count": 81,
+            "characters": [
+              {
+                "character": "槃",
+                "codepoint": "U+69C3",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-69C3"
+              }
+            ]
+          },
+          {
+            "text": "剎",
+            "count": 66,
+            "characters": [
+              {
+                "character": "剎",
+                "codepoint": "U+524E",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-524E"
+              }
+            ]
+          },
+          {
+            "text": "禪",
+            "count": 48,
+            "characters": [
+              {
+                "character": "禪",
+                "codepoint": "U+79AA",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-79AA"
+              }
+            ]
+          },
+          {
+            "text": "伽",
+            "count": 46,
+            "characters": [
+              {
+                "character": "伽",
+                "codepoint": "U+4F3D",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-4F3D"
+              }
+            ]
+          },
+          {
+            "text": "梵",
+            "count": 45,
+            "characters": [
+              {
+                "character": "梵",
+                "codepoint": "U+68B5",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-68B5"
+              }
+            ]
+          },
+          {
+            "text": "毘",
+            "count": 45,
+            "characters": [
+              {
+                "character": "毘",
+                "codepoint": "U+6BD8",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-6BD8"
+              }
+            ]
+          },
+          {
+            "text": "囉",
+            "count": 43,
+            "characters": [
+              {
+                "character": "囉",
+                "codepoint": "U+56C9",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-56C9"
+              }
+            ]
+          },
+          {
+            "text": "癡",
+            "count": 34,
+            "characters": [
+              {
+                "character": "癡",
+                "codepoint": "U+7661",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-7661"
+              }
+            ]
+          },
+          {
+            "text": "墮",
+            "count": 34,
+            "characters": [
+              {
+                "character": "墮",
+                "codepoint": "U+58AE",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-58AE"
+              }
+            ]
+          },
+          {
+            "text": "拏",
+            "count": 34,
+            "characters": [
+              {
+                "character": "拏",
+                "codepoint": "U+62CF",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-62CF"
+              }
+            ]
+          },
+          {
+            "text": "迴",
+            "count": 32,
+            "characters": [
+              {
+                "character": "迴",
+                "codepoint": "U+8FF4",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-8FF4"
+              }
+            ]
+          },
+          {
+            "text": "耨",
+            "count": 27,
+            "characters": [
+              {
+                "character": "耨",
+                "codepoint": "U+8028",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-8028"
+              }
+            ]
+          },
+          {
+            "text": "詣",
+            "count": 27,
+            "characters": [
+              {
+                "character": "詣",
+                "codepoint": "U+8A63",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-8A63"
+              }
+            ]
+          },
+          {
+            "text": "瞋",
+            "count": 25,
+            "characters": [
+              {
+                "character": "瞋",
+                "codepoint": "U+778B",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-778B"
+              }
+            ]
+          },
+          {
+            "text": "蘊",
+            "count": 25,
+            "characters": [
+              {
+                "character": "蘊",
+                "codepoint": "U+860A",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-860A"
+              }
+            ]
+          },
+          {
+            "text": "祇",
+            "count": 24,
+            "characters": [
+              {
+                "character": "祇",
+                "codepoint": "U+7947",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-7947"
+              }
+            ]
+          },
+          {
+            "text": "胝",
+            "count": 24,
+            "characters": [
+              {
+                "character": "胝",
+                "codepoint": "U+80DD",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-80DD"
+              }
+            ]
+          },
+          {
+            "text": "嚩",
+            "count": 24,
+            "characters": [
+              {
+                "character": "嚩",
+                "codepoint": "U+56A9",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-56A9"
+              }
+            ]
+          },
+          {
+            "text": "彌",
+            "count": 23,
+            "characters": [
+              {
+                "character": "彌",
+                "codepoint": "U+5F4C",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-5F4C"
+              }
+            ]
+          },
+          {
+            "text": "歎",
+            "count": 23,
+            "characters": [
+              {
+                "character": "歎",
+                "codepoint": "U+6B4E",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-6B4E"
+              }
+            ]
+          },
+          {
+            "text": "闍",
+            "count": 22,
+            "characters": [
+              {
+                "character": "闍",
+                "codepoint": "U+95CD",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-95CD"
+              }
+            ]
+          },
+          {
+            "text": "咸",
+            "count": 19,
+            "characters": [
+              {
+                "character": "咸",
+                "codepoint": "U+54B8",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-54B8"
+              }
+            ]
+          },
+          {
+            "text": "鬘",
+            "count": 18,
+            "characters": [
+              {
+                "character": "鬘",
+                "codepoint": "U+9B18",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-9B18"
+              }
+            ]
+          },
+          {
+            "text": "——",
+            "count": 17,
+            "characters": [
+              {
+                "character": "—",
+                "codepoint": "U+2014",
+                "unicode_name": "EM DASH"
+              },
+              {
+                "character": "—",
+                "codepoint": "U+2014",
+                "unicode_name": "EM DASH"
+              }
+            ]
+          },
+          {
+            "text": "吒",
+            "count": 16,
+            "characters": [
+              {
+                "character": "吒",
+                "codepoint": "U+5412",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-5412"
+              }
+            ]
+          },
+          {
+            "text": "牟",
+            "count": 14,
+            "characters": [
+              {
+                "character": "牟",
+                "codepoint": "U+725F",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-725F"
+              }
+            ]
+          },
+          {
+            "text": "羯",
+            "count": 14,
+            "characters": [
+              {
+                "character": "羯",
+                "codepoint": "U+7FAF",
+                "unicode_name": "CJK UNIFIED IDEOGRAPH-7FAF"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

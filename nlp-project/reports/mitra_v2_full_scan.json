@@ -1,0 +1,81 @@
+{
+  "input": "D:\\Courses\\nlp-project\\data\\raw\\mitra_v2\\bo-zh_matches.ndjson.gz",
+  "counts": {
+    "blank_source": 0,
+    "blank_target": 0,
+    "gemini_score_non_null": 0,
+    "records": 836559,
+    "records_missing_required_fields": 0,
+    "score_above_one": 606,
+    "source_with_tibetan_unicode": 0,
+    "target_with_ascii_digit": 3479,
+    "unexpected_src_lang": 0,
+    "unexpected_tgt_lang": 0
+  },
+  "score": {
+    "min": 0.284,
+    "p20": 0.524,
+    "p40": 0.598,
+    "median": 0.64,
+    "p60": 0.69,
+    "p80": 0.82,
+    "p95": 0.911,
+    "max": 1.086,
+    "mean": 0.6622455786142997
+  },
+  "max_source_or_target_length": {
+    "min": 2,
+    "median": 53.0,
+    "p95": 185.0,
+    "max": 2148
+  },
+  "source_segment_count_distribution": {
+    "1": 836559
+  },
+  "target_segment_count_distribution": {
+    "1": 471652,
+    "2": 224536,
+    "3": 92651,
+    "4": 27103,
+    "5": 9027,
+    "6": 5454,
+    "7": 2302,
+    "8": 1248,
+    "9": 843,
+    "10": 666,
+    "11": 301,
+    "12": 317,
+    "13": 130,
+    "14": 101,
+    "15": 63,
+    "16": 55,
+    "17": 31,
+    "18": 19,
+    "19": 17,
+    "20": 16,
+    "21": 9,
+    "22": 8,
+    "23": 3,
+    "24": 3,
+    "26": 2,
+    "27": 1,
+    "28": 1
+  },
+  "sample": {
+    "size": 200,
+    "seed": 336,
+    "design": "five score quantile bins crossed with two median-length bins",
+    "population_by_stratum": {
+      "Q1_short": 82840,
+      "Q1_long": 83718,
+      "Q2_short": 79397,
+      "Q2_long": 87084,
+      "Q3_short": 85034,
+      "Q3_long": 83079,
+      "Q4_short": 82629,
+      "Q4_long": 85018,
+      "Q5_short": 88611,
+      "Q5_long": 79149
+    }
+  }
+}

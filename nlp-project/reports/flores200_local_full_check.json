@@ -1,0 +1,184 @@
+{
+  "dataset": "facebook/flores",
+  "revision": "71abf77d8b7beb5cfef59898d6b24d92ab7654fc",
+  "generated_at_utc": "2026-09-21T10:23:38.692925+00:00",
+  "passed_critical_alignment_checks": true,
+  "runtime": {
+    "duckdb": "1.1.3",
+    "memory_limit": "256MB",
+    "threads": 2
+  },
+  "files": {
+    "bod_Tibt_dev": {
+      "path": "data/raw/flores200_20260529/bod_Tibt/dev-00000-of-00001.parquet",
+      "bytes": 160284,
+      "sha256": "5F7949E1302C5322EE132368B3374215BBD8FFAA24B30E4756777AFD8EE6E06F"
+    },
+    "bod_Tibt_devtest": {
+      "path": "data/raw/flores200_20260529/bod_Tibt/devtest-00000-of-00001.parquet",
+      "bytes": 169983,
+      "sha256": "D3A3F62EF18A5FEB99AA619332379BCA65D47F713F65B85EF8138DF36486D622"
+    },
+    "zho_Hans_dev": {
+      "path": "data/raw/flores200_20260529/zho_Hans/dev-00000-of-00001.parquet",
+      "bytes": 113002,
+      "sha256": "F9151A874D14B3DD9086C7F788425618EB99E12246BC0FAE99EA33FD363D19E8"
+    },
+    "zho_Hans_devtest": {
+      "path": "data/raw/flores200_20260529/zho_Hans/devtest-00000-of-00001.parquet",
+      "bytes": 117226,
+      "sha256": "10E0038BEF15832B981F50FECE056F7F6ECDE8CCFFA837A08999BB2B5575D973"
+    }
+  },
+  "split_checks": {
+    "dev": {
+      "tibetan_rows": 997,
+      "chinese_rows": 997,
+      "tibetan_unique_ids": 997,
+      "chinese_unique_ids": 997,
+      "missing_tibetan_ids": 0,
+      "missing_chinese_ids": 0,
+      "url_mismatch": 0,
+      "domain_mismatch": 0,
+      "topic_mismatch": 0,
+      "has_image_mismatch": 0,
+      "has_hyperlink_mismatch": 0,
+      "blank_tibetan": 0,
+      "blank_chinese": 0
+    },
+    "devtest": {
+      "tibetan_rows": 1012,
+      "chinese_rows": 1012,
+      "tibetan_unique_ids": 1012,
+      "chinese_unique_ids": 1012,
+      "missing_tibetan_ids": 0,
+      "missing_chinese_ids": 0,
+      "url_mismatch": 0,
+      "domain_mismatch": 0,
+      "topic_mismatch": 0,
+      "has_image_mismatch": 0,
+      "has_hyperlink_mismatch": 0,
+      "blank_tibetan": 0,
+      "blank_chinese": 0
+    }
+  },
+  "exact_duplicates": {
+    "tibetan": {
+      "distinct_values_repeated": 4,
+      "extra_occurrences": 4
+    },
+    "chinese": {
+      "distinct_values_repeated": 0,
+      "extra_occurrences": 0
+    },
+    "aligned_pair": {
+      "distinct_values_repeated": 0,
+      "extra_occurrences": 0
+    }
+  },
+  "exact_cross_split_overlap": {
+    "tibetan": 0,
+    "chinese": 0,
+    "aligned_pair": 0
+  },
+  "unicode": {
+    "tibetan": {
+      "sentences": 2009,
+      "total_characters": 289424,
+      "nonspace_characters": 287456,
+      "target_script_characters": 284009,
+      "target_script_ratio_of_nonspace": 0.988009,
+      "sentences_changed_by_nfc": 10,
+      "replacement_characters": 0,
+      "zero_width_characters": 0,
+      "tsheg_u_0f0b": 70142,
+      "nonbreaking_tsheg_u_0f0c": 0
+    },
+    "chinese": {
+      "sentences": 2009,
+      "total_characters": 85427,
+      "nonspace_characters": 83326,
+      "target_script_characters": 69527,
+      "target_script_ratio_of_nonspace": 0.834397,
+      "sentences_changed_by_nfc": 0,
+      "replacement_characters": 0,
+      "zero_width_characters": 0
+    }
+  },
+  "domains": [
+    {
+      "name": "wikinews",
+      "count": 689
+    },
+    {
+      "name": "wikivoyage",
+      "count": 668
+    },
+    {
+      "name": "wikibooks",
+      "count": 652
+    }
+  ],
+  "top_topics": [
+    {
+      "name": "travel",
+      "count": 107
+    },
+    {
+      "name": "Travel",
+      "count": 86
+    },
+    {
+      "name": "Politics",
+      "count": 54
+    },
+    {
+      "name": "Sports",
+      "count": 47
+    },
+    {
+      "name": "travel, safety",
+      "count": 40
+    },
+    {
+      "name": "sports",
+      "count": 39
+    },
+    {
+      "name": "Disasters and accidents",
+      "count": 38
+    },
+    {
+      "name": "politics",
+      "count": 36
+    },
+    {
+      "name": "Crime and law",
+      "count": 29
+    },
+    {
+      "name": "Crime and Law",
+      "count": 28
+    },
+    {
+      "name": "travel, tourism",
+      "count": 28
+    },
+    {
+      "name": "travel, accomodation",
+      "count": 27
+    },
+    {
+      "name": "Science",
+      "count": 23
+    },
+    {
+      "name": "entertainment",
+      "count": 23
+    },
+    {
+      "name": "travel, culture",
+      "count": 23
+    }
+  ]
+}
